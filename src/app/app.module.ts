@@ -1,6 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +18,9 @@ import { FeaturesModule } from './features/features.module';
     AppRoutingModule,
     LazyLoadImageModule,
     FeaturesModule,
-    CoreModule
+    CoreModule,
+    NgxUiLoaderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
