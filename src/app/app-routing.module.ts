@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ConfPublComponent } from './features/conf-publ/conf-publ.component';
 import { LabMembersComponent } from './features/lab-members/lab-members.component';
 import { LandingPageComponent } from './features/landing-page/landing-page.component';
