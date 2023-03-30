@@ -9,7 +9,7 @@ import { LoginComponent } from './features/login/login.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
@@ -39,7 +39,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled',useHash:true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
