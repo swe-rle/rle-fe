@@ -8,7 +8,9 @@ import { LabMembersComponent } from './lab-members/lab-members.component';
 import { ConfPublComponent } from './conf-publ/conf-publ.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
-
+import { GalleryModule } from 'ng-gallery';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
@@ -20,10 +22,13 @@ import { RouterModule } from '@angular/router';
     LabMembersComponent,
     ConfPublComponent,
     LoginComponent,
+    GalleryComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    GalleryModule,
+    BrowserAnimationsModule
   ]
 })
 export class FeaturesModule { }
