@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { GalleryModule } from 'ng-gallery';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterConfig, NgxUiLoaderRouterModule, PB_DIRECTION, POSITION, SPINNER } from 'ngx-ui-loader';
 
@@ -32,7 +33,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     CoreModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderHttpModule.forRoot({ showForeground: true }),    
-    HttpClientModule
+    HttpClientModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
