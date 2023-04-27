@@ -38,6 +38,32 @@ const routes: Routes = [
       component:GalleryComponent
     }
   ]
+  },
+  {
+    path: 'admin/',
+  component: LayoutComponent,
+  children: [
+    {
+      path:'home',
+      component: LandingPageComponent,
+    },
+    {
+        path:'research',
+        component: ConfPublComponent
+    },
+    {
+      path:'people',
+      component:LabMembersComponent
+    },
+    {
+      path:'login',
+      component:LoginComponent
+    },
+    {
+      path:'gallery',
+      component:GalleryComponent
+    }
+  ]
   }
 ];
 

@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GalleryModule } from 'ng-gallery';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterConfig, NgxUiLoaderRouterModule, PB_DIRECTION, POSITION, SPINNER } from 'ngx-ui-loader';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { AdminModule } from './admin/admin.module';
+
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: 'red',
@@ -36,7 +36,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderHttpModule.forRoot({ showForeground: true }),    
     HttpClientModule,
-    GalleryModule
+    GalleryModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { GalleryModule } from 'ng-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GalleryComponent } from './gallery/gallery.component';
+import { AdminModule } from '../admin/admin.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     CommonModule,
     RouterModule,
     GalleryModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AdminModule
   ]
 })
 export class FeaturesModule { }

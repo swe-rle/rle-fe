@@ -1,29 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from './layout/layout.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { PublicationsComponent } from './publications/publications.component';
-import { ConferencesComponent } from './conferences/conferences.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { PeopleComponent } from './people/people.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { AdminHeaderComponent } from './admin-layout/admin-header/admin-header.component';
+import { AdminFooterComponent } from './admin-layout/admin-footer/admin-footer.component';
+import { AdminPeopleComponent } from './admin-people/admin-people.component';
+import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
+import { AdminLandingPageComponent } from './admin-landing-page/admin-landing-page.component';
 
 
 
 @NgModule({
   declarations: [
-    LayoutComponent,
-    HeaderComponent,
-    FooterComponent,
-    PublicationsComponent,
-    ConferencesComponent,
-    GalleryComponent,
-    PeopleComponent,
-    LandingPageComponent
+   AdminFooterComponent,
+   AdminHeaderComponent,
+   AdminLayoutComponent,
+   AdminPeopleComponent,
+   AdminPublicationsComponent,
+   AdminLandingPageComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    CKEditorModule
+  ],
+  exports:[]
 })
 export class AdminModule { }
