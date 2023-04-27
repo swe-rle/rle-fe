@@ -4,7 +4,7 @@
       <div class="logo">
         <!-- <h1 class="text-light"><a href="index.html"></a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a (click)="setId(1)" routerLink="/home"><img src="assets/img/transperant-logo.png" alt="" class="img-fluid"></a> <span style="font-size: larger; font-weight: bolder;">PioneerX Lab</span>
+        <a (click)="setId(1)" routerLink="/home"><img [src]="headerData?.logo" alt="" class="img-fluid"></a> <span style="font-size: larger; font-weight: bolder;">{{headerData?.labName}}</span>
       </div>
 
       <nav id="navbar" class="navbar">

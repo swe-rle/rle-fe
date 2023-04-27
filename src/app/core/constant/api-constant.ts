@@ -6,6 +6,8 @@ export enum ApiMethod {
   }
   
   export enum AuthEndPoints {
-    ALL_STUDENTS = 'Student/GetAllStudents',
+    GET_ALL_LABS = 'labs',
+    GET_PERSON_DETAILS = 'people/',
+    GET_LANDING_PAGE_DETAILS = 'home/',
   }
   

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { LabMembersService } from './lab-members.service';
+import { GlobalLabId } from 'src/app/core/constant/global-id';
 
 @Component({
   selector: 'app-lab-members',
@@ -8,11 +10,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class LabMembersComponent implements OnInit {
 
-  constructor(){
-
+  constructor(private labMembersService:LabMembersService) { }
+  ngOnInit(): void {
+    this.getAllLabMemberDetails(GlobalLabId.LABID)
   }
-  ngOnInit() {
-   
-  }
+  getAllLabMemberDetails(lab_id:any){
+    this.labMembersService._labMemberDetails$.subscribe((res)=>{
+      console.log(res);
+    });
+    this.labMembersService.getAllLabMembers(lab_id);
+  } 
 
 }
