@@ -7,6 +7,7 @@ import { AdminFooterComponent } from './admin-layout/admin-footer/admin-footer.c
 import { AdminPeopleComponent } from './admin-people/admin-people.component';
 import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
 import { AdminLandingPageComponent } from './admin-landing-page/admin-landing-page.component';
+import { AdminGalleryComponent } from './admin-gallery/admin-gallery.component';
 
 
 
@@ -17,7 +18,8 @@ import { AdminLandingPageComponent } from './admin-landing-page/admin-landing-pa
    AdminLayoutComponent,
    AdminPeopleComponent,
    AdminPublicationsComponent,
-   AdminLandingPageComponent
+   AdminLandingPageComponent,
+   AdminGalleryComponent
   ],
   imports: [
     CommonModule,
