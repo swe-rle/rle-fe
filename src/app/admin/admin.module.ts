@@ -8,6 +8,9 @@ import { AdminPeopleComponent } from './admin-people/admin-people.component';
 import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
 import { AdminLandingPageComponent } from './admin-landing-page/admin-landing-page.component';
 import { AdminGalleryComponent } from './admin-gallery/admin-gallery.component';
+import { AdminAdmissionsComponent } from './admin-admissions/admin-admissions.component';
+import { RouterModule } from '@angular/router';
+import { AdminConferencesComponent } from './admin-conferences/admin-conferences.component';
 
 
 
@@ -19,11 +22,15 @@ import { AdminGalleryComponent } from './admin-gallery/admin-gallery.component';
    AdminPeopleComponent,
    AdminPublicationsComponent,
    AdminLandingPageComponent,
-   AdminGalleryComponent
+   AdminGalleryComponent,
+   AdminAdmissionsComponent,
+   AdminConferencesComponent
+
   ],
   imports: [
     CommonModule,
-    CKEditorModule
+    CKEditorModule,
+    RouterModule
   ],
   exports:[]
 })
