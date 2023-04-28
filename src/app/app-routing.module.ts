@@ -17,15 +17,15 @@ import { AdminConferencesComponent } from './admin/admin-conferences/admin-confe
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'features/home/6',
+    redirectTo: 'features/6/home',
     pathMatch: 'full'
   },
   {
-    path: 'features',
+    path: 'features/:lab_id',
   component: LayoutComponent,
   children: [
     {
-      path:'home/:lab_id',
+      path:'home',
       component: LandingPageComponent,
     },
     {

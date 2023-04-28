@@ -1,8 +1,9 @@
 import { Component, NgModule} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GalleryComponent, GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection, ThumbnailsPosition, ThumbnailsView } from 'ng-gallery';
 import { catchError, map, Observable } from 'rxjs';
-import { LayoutService } from '../layout/layout.service';
 import { GlobalLabId } from 'src/app/core/constant/global-id';
+import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -13,10 +14,13 @@ export class LandingPageComponent {
   images!: GalleryItem[];
   imagesList:any;
   landingPageDetails:any;
-  constructor(public layoutService:LayoutService) { }
+
+  public lab_id:any
+  constructor(private landingPageService:LandingPageService,
+     private route: ActivatedRoute) { }
 
 ngOnInit() {
-  this.getAllHeaderFooterDetails(GlobalLabId.LABID);
+  this.lab_id = this.route.snapshot.paramMap.get('lab_id');
   this.images = [
     
     ];
@@ -28,23 +32,19 @@ ngOnInit() {
     thumbWidth:10,
     thumbHeight:10,
   };
+  this.getLandingPageDetails(this.lab_id)
 }
 ngAfterViewInit(): void {
   (<any>window).twttr.widgets.load();
 }
 
-getAllHeaderFooterDetails(lab_id:any){
-  this.layoutService._landingPageDetails$.subscribe((res)=>{
-    console.log(res);
+getLandingPageDetails(lab_id:any){
+  this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
+    console.log(res)
     this.landingPageDetails = res
-    this.imagesList = res?.slider[0].images
-    this.images = []
-    this.imagesList.forEach((value:any, index:any) => {
-      console.log(value);
-      this.images.push(new ImageItem({ src: value}));
   });
-  });
-  this.layoutService.getHeaderFooterDetails(lab_id);
-} 
+  this.landingPageService.getLandingPageDetails(lab_id);
+}
+
 
 }
