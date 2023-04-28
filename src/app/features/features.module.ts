@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { TruncatePipe } from '../truncate.pipe';
+import { ConferencesComponent } from './conferences/conferences.component';
 
 
 @NgModule({
@@ -30,7 +31,9 @@ import { TruncatePipe } from '../truncate.pipe';
     LoginComponent,
     GalleryComponent,
     PublicationsComponent,
-    TruncatePipe
+    TruncatePipe,
+    ConferencesComponent
+    
   ],
   imports: [
     CommonModule,
@@ -45,7 +48,8 @@ import { TruncatePipe } from '../truncate.pipe';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    NgxExtendedPdfViewerModule  
+    NgxExtendedPdfViewerModule ,
+    
     
   ]
 })

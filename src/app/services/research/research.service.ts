@@ -17,5 +17,21 @@ export class ResearchService {
         lab_id    
       );
     }
+    public getAllPublications(lab_id:any){
+      return this.httpService.requestCall(
+        ApiMethod.GET,
+        AuthEndPoints.GET_ALL_PUBLICATIONS,
+        '',
+        lab_id    
+      );
+    }
+    public getAllConferences(lab_id:any){
+      return this.httpService.requestCall(
+        ApiMethod.GET,
+        AuthEndPoints.GET_ALL_CONFERENCES,
+        '',
+        lab_id    
+      );
+    }
   
 }

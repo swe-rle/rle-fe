@@ -11,5 +11,7 @@ export enum ApiMethod {
     SEND_FEEDBACK = 'feedback',
     GET_ALL_PEOPLE = 'people/',
     GET_RESEARCH = 'research/',
+    GET_ALL_PUBLICATIONS = 'publications/',
+    GET_ALL_CONFERENCES = 'conferences/',
   }
   
