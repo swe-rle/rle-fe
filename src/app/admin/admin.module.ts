@@ -11,6 +11,10 @@ import { AdminGalleryComponent } from './admin-gallery/admin-gallery.component';
 import { AdminAdmissionsComponent } from './admin-admissions/admin-admissions.component';
 import { RouterModule } from '@angular/router';
 import { AdminConferencesComponent } from './admin-conferences/admin-conferences.component';
+import { GalleryModule } from 'ng-gallery';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -30,7 +34,16 @@ import { AdminConferencesComponent } from './admin-conferences/admin-conferences
   imports: [
     CommonModule,
     CKEditorModule,
-    RouterModule
+    RouterModule,
+    GalleryModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   exports:[]
 })
