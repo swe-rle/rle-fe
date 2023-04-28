@@ -12,7 +12,7 @@ export class ConferencesComponent implements OnInit {
   conferences:any
   constructor(private researchService:ResearchService,
     private route: ActivatedRoute,
-    private router: Router) { }
+  ) { }
   ngOnInit(): void {
     this.lab_id = this.route.parent?.snapshot.paramMap.get('lab_id');
     this.getAllConferences(this.lab_id)

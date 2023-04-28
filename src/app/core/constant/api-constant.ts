@@ -13,5 +13,6 @@ export enum ApiMethod {
     GET_RESEARCH = 'research/',
     GET_ALL_PUBLICATIONS = 'publications/',
     GET_ALL_CONFERENCES = 'conferences/',
+    GET_GALLERY = 'gallery/',
   }
   

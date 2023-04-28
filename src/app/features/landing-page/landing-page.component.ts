@@ -1,4 +1,4 @@
-import { Component,} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component,} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {  GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection } from 'ng-gallery';
@@ -7,7 +7,8 @@ import { LandingPageService } from 'src/app/services/landingpage/landing-page.se
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LandingPageComponent {
   config: GalleryConfig | undefined;
@@ -22,7 +23,8 @@ export class LandingPageComponent {
   news:any
   constructor(private landingPageService:LandingPageService,
      private route: ActivatedRoute,
-     private toastr: ToastrService) { }
+     private toastr: ToastrService,
+     private cdr: ChangeDetectorRef ) { }
 
 ngOnInit() {
   this.formdata = new FormGroup({ 
@@ -64,6 +66,7 @@ getLandingPageDetails(lab_id:any){
   this.twitterHandle = res.twitter_handle.replace(/^./, "");
   });
   this.landingPageService.getLandingPageDetails(lab_id);
+  this.cdr.detectChanges();
 }
 
 onFeedBackSubmit(data:any) {

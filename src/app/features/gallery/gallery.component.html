@@ -1,1 +1,16 @@
-<p>gallery works!</p>
+<section id="intro" class="about-section pt-70" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 style="text-align: center;">Gallery</h1>
+            </div>
+        </div>
+      <div class="row ">
+        <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 justify-content-between" *ngFor="let gal of gallery"> 
+        <h3>{{gal.title}}</h3>
+        <h6>{{gal.description}}</h6>
+        
+        </div>
+    </div>
+    </div>
+  </section>
