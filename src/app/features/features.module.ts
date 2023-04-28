@@ -15,6 +15,8 @@ import { AdminModule } from '../admin/admin.module';
 import { PublicationsComponent } from './publications/publications.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { TruncatePipe } from '../truncate.pipe';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     GalleryComponent,
     PublicationsComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
@@ -42,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    NgxExtendedPdfViewerModule  
     
   ]
 })

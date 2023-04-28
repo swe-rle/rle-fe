@@ -19,6 +19,7 @@ export class LandingPageComponent {
   public lab_id:any
   twitterHandle:any
   formdata!:FormGroup
+  news:any
   constructor(private landingPageService:LandingPageService,
      private route: ActivatedRoute,
      private toastr: ToastrService) { }
@@ -49,6 +50,7 @@ ngAfterViewInit(): void {
 
 getLandingPageDetails(lab_id:any){
   this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
+    this.news = res.news
     this.landingPageDetails = res
     this.imagesList = res?.slider
     this.images = []
@@ -67,6 +69,7 @@ getLandingPageDetails(lab_id:any){
 onFeedBackSubmit(data:any) {
   var feedbackFormData = 
     {
+      "lab_id": Number(this.lab_id),
       "name": data.name ,
       "email":data.email,
       "subject": data.subject,

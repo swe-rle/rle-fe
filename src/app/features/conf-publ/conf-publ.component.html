@@ -1,158 +1,71 @@
-<p>conf-publ works!</p>
 <section id="intro" class="about-section pt-70">
     <div class="container">
       <div class="row gutters justify-content-center">
-        <h1 style="text-align: center;">Transparency Report</h1>
+        <h1 style="text-align: center;">Recent Publications</h1>
         <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12 justify-content-between"> <!--col-xl-8 col-lg-12 col-md-12 col-sm-12-->
           <div class="card" style="border:none">
             <div class="card-body" >
               <!-- Timeline start -->
               <div class="timeline">
-                <div class="timeline-row">
-                  <div class="timeline-time">21 May 2021</div>
+                <div class="timeline-row" *ngFor="let pub of recentPublications">
+                  <div class="timeline-time">{{pub.pub_date}}</div>
                   <div class="timeline-dot fb-bg"></div>
                   <div class="timeline-content">
                     <i class="fa fa-check"></i>
-                    <h4>Transperancy Report</h4>
+                    <h4>{{pub.pub_title  | truncate:28  }}</h4>
                     <p>
-                      Townhall Meeting Minutes &#8594;<a
-                        href="../../../assets/transperancypdf/27-05-2021_townhall_meeting.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                      <br />
-                      Gymkhana Monthly Track &#8594;
-                      <a
-                        href="https://docs.google.com/document/d/1JZPMxDVDHGDIKFq-F5yFCBdRfxRPwjyQoAlw_s30N4Q/edit"
-                        target="blank"
-                        >Click here</a
-                      >
+                     {{pub.description| truncate:100}}
                     </p>
+                    <button class="btn-get-started" (click)="openPdf(pub.blob_storage)">PDF</button>
                   </div>
                 </div>
-                <div class="timeline-row">
-                  <div class="timeline-time">11 Feb 2021</div>
-                  <div class="timeline-dot green-one-bg"></div>
-                  <div class="timeline-content green-one">
-                    <i class="fa fa-check"></i>
-                    <h4>Transperancy Report</h4>
-                    <p>
-                      Townhall Meeting Minutes &#8594;<a
-                        href="../../../assets/transperancypdf/Townhall_meet_2021_feb.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                    </p>
-                  </div>
-                </div>
-                <div class="timeline-row">
-                  <div class="timeline-time">9 Sep 2019</div>
-                  <div class="timeline-dot green-two-bg"></div>
-                  <div class="timeline-content green-two">
-                    <i class="fa fa-check"></i>
-                    <h4>Weekly report</h4>
-                    <p>
-                      Townhall Meeting Minutes(PG's) &#8594;<a
-                        href="../../../assets/transperancypdf/PG_sep_2019.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                      <br />
-                      Townhall Meeting Minutes(UG's) &#8594;
-                      <a
-                        href="../../../assets/transperancypdf/UG_sep_2019.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                      <br />
-                      Minutes with Director transport issues &#8594;
-                      <a
-                        href="../../../assets/transperancypdf/minutes_sep_2019.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                    </p>
-                  </div>
-                </div>
-                <div class="timeline-row">
-                  <div class="timeline-time">21 July 2019</div>
-                  <div class="timeline-dot green-three-bg"></div>
-                  <div class="timeline-content green-three">
-                    <i class="fa fa-check"></i>
-                    <h4>Weekly report</h4>
-                    <p>
-                      Gymkhana Meeting &#8594;<a
-                        href="../../../assets/transperancypdf/gymMeeting_july_2021.docx"
-                        target="blank"
-                        >Click here</a
-                      >
-                    </p>
-                  </div>
-                </div>
-                <div class="timeline-row">
-                  <div class="timeline-time">25 Apr 2019</div>
-                  <div class="timeline-dot green-four-bg"></div>
-                  <div class="timeline-content green-four">
-                    <i class="fa fa-check"></i>
-                    <h4>Weekly Report</h4>
-                    <p>
-                      32 Senate Minutes For Students &#8594;<a
-                        href="../../../assets/transperancypdf/32senate_apr_2019.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                    </p>
-                  </div>
-                </div>
-                <div class="timeline-row">
-                  <div class="timeline-time">6 Jan 2016</div>
-                  <div class="timeline-dot teal-bg"></div>
-                  <div class="timeline-content teal">
-                    <i class="fa fa-check"></i>
-                    <h4>Semester Report</h4>
-                    <p>
-                      Work updates - General Council &#8594;<a
-                        href="../../../assets/transperancypdf/general16a-d.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                      <br />
-                      Work updates - Cultural Council &#8594;<a
-                        href="../../../assets/transperancypdf/cult16a-d.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                      <br />
-                      Work updates - Sports Council &#8594;<a
-                        href="../../../assets/transperancypdf/sports16a-d.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                      <br />
-                      Work updates - SciTech Council &#8594;<a
-                        href="../../../assets/transperancypdf/scitech16a-d.pdf"
-                        target="blank"
-                        >Click here</a
-                      >
-                    </p>
-                  </div>
-                </div>
-                <div class="timeline-row">
-                  <div class="timeline-time">6 Oct 2016</div>
-                  <div class="timeline-dot sea-green-bg"></div>
-                  <div class="timeline-content sea-green">
-                    <i class="fa fa-check"></i>
-                    <h4>Weekly Report</h4>
-                    <p>
-                      Work Done &#8594;<a href="" target="blank">Click here</a>
-                    </p>
-                  </div>
-                </div>
+                
               </div>
               <!-- Timeline end -->
             </div>
           </div>
         </div>
       </div>
+      <div class="row gutters justify-content-center">
+        <div class="col  d-flex justify-content-center ">
+          <a routerLink="../research/publications"> <button class="btn-get-started" >View More</button></a> 
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="intro" class="about-section pt-70">
+    <div class="container">
+      <div class="row gutters justify-content-center">
+        <h1 style="text-align: center;">Upcoming Conferences</h1>
+        <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12 justify-content-between"> <!--col-xl-8 col-lg-12 col-md-12 col-sm-12-->
+          <div class="card" style="border:none">
+            <div class="card-body" >
+              <!-- Timeline start -->
+              <div class="timeline">
+                <div class="timeline-row" *ngFor="let conf of upcomingConferences">
+                  <div class="timeline-time">{{conf.end_date}}</div>
+                  <div class="timeline-dot fb-bg"></div>
+                  <div class="timeline-content">
+                    <i class="fa fa-check"></i>
+                    <h4>{{conf.conf_title  | truncate:28  }}</h4>
+                    <p>
+                     {{conf.description| truncate:100}}
+                    </p>
+                    <button class="btn-get-started" (click)="openPdf(conf.blob_storage)">Click Here</button>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- Timeline end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row gutters justify-content-center">
+        <div class="col  d-flex justify-content-center ">
+          <a routerLink="../research/conferences"> <button class="btn-get-started" >View More</button></a> 
+        </div>
+        </div>
     </div>
   </section>

@@ -11,6 +11,7 @@ import { FeaturesModule } from './features/features.module';
 import { AdminModule } from './admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { TruncatePipe } from './truncate.pipe';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -26,7 +27,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    
     
   ],
   providers: [],
