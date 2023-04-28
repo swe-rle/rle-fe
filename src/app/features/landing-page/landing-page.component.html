@@ -2,14 +2,14 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Welcome to {{landingPageDetails.Name}}</h1>
-          <h2>{{landingPageDetails.Overview}}</h2>
+          <h1>Welcome to {{landingPageDetails.name}}</h1>
+          <h2>{{landingPageDetails.overview}}</h2>
           <div>
             <a href="#about" class="btn-get-started scrollto">Go to Team</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="assets/img/overview/team-lab.jpg" class="img-fluid animated" alt="">
+          <img [src]="landingPageDetails.cover_url.blob_storage" class="img-fluid animated" alt="" style="border-radius: 10px;">
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-journal-text"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">26</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.journalCount}}</h1>
               <p class="description"> Journals  </p>
             </div>
           </div>
@@ -108,7 +108,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-diagram-3"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">93</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.conferencesCount}}</h1>
               <p class="description"> Conferences  </p>
             </div>
           </div>
@@ -118,7 +118,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-check2-all"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">5</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.patentCount}}</h1>
               <p class="description"> Patents  </p>
             </div>
           </div>
@@ -128,7 +128,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-file-easel"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">19</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.posterDemoCount}}</h1>
               <p class="description"> Posters and Demos  </p>
             </div>
           </div>
