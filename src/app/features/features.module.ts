@@ -12,6 +12,7 @@ import { GalleryModule } from 'ng-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AdminModule } from '../admin/admin.module';
+import { PublicationsComponent } from './publications/publications.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AdminModule } from '../admin/admin.module';
     ConfPublComponent,
     LoginComponent,
     GalleryComponent,
+    PublicationsComponent,
   ],
   imports: [
     CommonModule,

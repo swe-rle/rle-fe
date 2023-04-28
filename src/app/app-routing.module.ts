@@ -13,6 +13,8 @@ import { AdminPeopleComponent } from './admin/admin-people/admin-people.componen
 import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.component';
 import { AdminAdmissionsComponent } from './admin/admin-admissions/admin-admissions.component';
 import { AdminConferencesComponent } from './admin/admin-conferences/admin-conferences.component';
+import { PublicationsComponent } from './features/publications/publications.component';
+import { ConferencesComponent } from './features/conferences/conferences.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
     {
         path:'research',
         component: ConfPublComponent
+    },
+    {
+      path:'research/publications',
+      component: PublicationsComponent
+    },
+    {
+      path:'research/conferences',
+      component: ConferencesComponent
     },
     {
       path:'people',
