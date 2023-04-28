@@ -29,73 +29,49 @@ const routes: Routes = [
       component: LandingPageComponent,
     },
     {
-        path:'research/:lab_id',
+        path:'research',
         component: ConfPublComponent
     },
     {
-      path:'people/:lab_id',
+      path:'people',
       component:LabMembersComponent
     },
     {
-      path:'login/:lab_id',
+      path:'login',
       component:LoginComponent
     },
     {
-      path:'gallery/:lab_id',
+      path:'gallery',
       component:GalleryComponent
-    },
-    {
-      path:'admin/home/:lab_id',
-      component: AdminLandingPageComponent,
-    },
-    {
-        path:'admin/research/publications/:lab_id',
-        component: AdminPublicationsComponent
-    },
-    {
-      path:'admin/research/conferences/:lab_id',
-      component: AdminConferencesComponent
-    },
-    {
-      path:'admin/people/:lab_id',
-      component:AdminPeopleComponent
-    },
-    {
-      path:'admin/gallery/:lab_id',
-      component:AdminGalleryComponent
-    },
-    {
-      path:'admin/admissions/:lab_id',
-      component:AdminAdmissionsComponent
     }
   ]
   },
   {
-    path: 'admin',
+    path: 'admin/:lab_id',
   component: AdminLayoutComponent,
   children: [
     {
-      path:'home/:lab_id',
+      path:'home',
       component: AdminLandingPageComponent,
     },
     {
-        path:'research/publications/:lab_id',
+        path:'research/publications',
         component: AdminPublicationsComponent
     },
     {
-      path:'research/conferences/:lab_id',
+      path:'research/conferences',
       component: AdminConferencesComponent
     },
     {
-      path:'people/:lab_id',
+      path:'people',
       component:AdminPeopleComponent
     },
     {
-      path:'gallery/:lab_id',
+      path:'gallery',
       component:AdminGalleryComponent
     },
     {
-      path:'admissions/:lab_id',
+      path:'admissions',
       component:AdminAdmissionsComponent
     }
   ]

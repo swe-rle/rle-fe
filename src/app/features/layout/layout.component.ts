@@ -25,7 +25,8 @@ export class LayoutComponent  implements OnInit{
       console.log(res.contact_us)
       this.headerDetails = {
         "logo":res?.logo,
-        "lab_name":res?.name
+        "lab_name":res?.name,
+        "lab_id":lab_id
       }
       this.footerDetails = {
         "contact_us":res?.contact_us
