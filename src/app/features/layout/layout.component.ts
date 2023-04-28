@@ -12,6 +12,7 @@ export class LayoutComponent  implements OnInit{
   headerDetails:any
   footerDetails:any
   public lab_id:any
+  isLoaded:boolean = false
 
   constructor(private landingPageService:LandingPageService,
     private route: ActivatedRoute) { }
@@ -22,17 +23,18 @@ export class LayoutComponent  implements OnInit{
     }
   getHeaderFooterDetails(lab_id:any){
     this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
-      console.log(res.contact_us)
       this.headerDetails = {
         "logo":res?.logo,
         "lab_name":res?.name,
         "lab_id":lab_id
       }
       this.footerDetails = {
-        "contact_us":res?.contact_us
+        "contact_us":res?.contact_us,
+        "lab_name":res?.name
     }
   });
     this.landingPageService.getLandingPageDetails(lab_id);
+    this.isLoaded = true
   }
   
 }

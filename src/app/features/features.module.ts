@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AdminModule } from '../admin/admin.module';
 import { PublicationsComponent } from './publications/publications.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -32,7 +34,15 @@ import { PublicationsComponent } from './publications/publications.component';
     RouterModule,
     GalleryModule,
     BrowserAnimationsModule,
-    AdminModule
+    AdminModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    
   ]
 })
 export class FeaturesModule { }

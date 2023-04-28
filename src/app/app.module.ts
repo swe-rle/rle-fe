@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { AdminModule } from './admin/admin.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -37,6 +39,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     NgxUiLoaderHttpModule.forRoot({ showForeground: true }),    
     HttpClientModule,
     GalleryModule,
+    FormsModule ,
+    ReactiveFormsModule ,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     
   ],
   providers: [],

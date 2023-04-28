@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +10,7 @@ export class FooterComponent implements OnInit {
   @Input() footerDetails: any;
   constructor() { }
   ngOnInit(): void {
-    console.log(this.footerDetails)
+    console.log(this.footerDetails,"footer")
   }
+
 }

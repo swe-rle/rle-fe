@@ -1,8 +1,8 @@
-import { Component, NgModule} from '@angular/core';
+import { Component,} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { GalleryComponent, GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection, ThumbnailsPosition, ThumbnailsView } from 'ng-gallery';
-import { catchError, map, Observable } from 'rxjs';
-import { GlobalLabId } from 'src/app/core/constant/global-id';
+import {  GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection } from 'ng-gallery';
+import { ToastrService } from 'ngx-toastr';
 import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
 @Component({
   selector: 'app-landing-page',
@@ -14,16 +14,24 @@ export class LandingPageComponent {
   images!: GalleryItem[];
   imagesList:any;
   landingPageDetails:any;
-
+  isEventsEmpty:boolean = false
+  eventsList:any
   public lab_id:any
+  twitterHandle:any
+  formdata!:FormGroup
   constructor(private landingPageService:LandingPageService,
-     private route: ActivatedRoute) { }
+     private route: ActivatedRoute,
+     private toastr: ToastrService) { }
 
 ngOnInit() {
+  this.formdata = new FormGroup({ 
+    name: new FormControl(""),
+    email: new FormControl(""),
+    subject: new FormControl(""),
+    message: new FormControl("")
+ }); 
   this.lab_id = this.route.snapshot.paramMap.get('lab_id');
-  this.images = [
-    
-    ];
+  this.images = [];
   this.config = {
    thumb:false,
    dots: true,
@@ -34,17 +42,46 @@ ngOnInit() {
   };
   this.getLandingPageDetails(this.lab_id)
 }
+
 ngAfterViewInit(): void {
   (<any>window).twttr.widgets.load();
 }
 
 getLandingPageDetails(lab_id:any){
   this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
-    console.log(res)
     this.landingPageDetails = res
+    this.imagesList = res?.slider
+    this.images = []
+    this.imagesList.forEach((value:any, index:any) => {
+      this.images.push(new ImageItem({ src: value.image_url}));
+  });
+  if(res.events.length == 0){
+    this.isEventsEmpty = true
+  }
+  this.eventsList = res.events
+  this.twitterHandle = res.twitter_handle.replace(/^./, "");
   });
   this.landingPageService.getLandingPageDetails(lab_id);
 }
 
-
+onFeedBackSubmit(data:any) {
+  var feedbackFormData = 
+    {
+      "name": data.name ,
+      "email":data.email,
+      "subject": data.subject,
+      "message": data.message 
+    }
+  
+  this.landingPageService.sendFeedBack(data)?.subscribe((res:any)=>{
+    this.toastr.success('Successfully sent the message, We will get back to you soon !!','Success', {
+      timeOut: 3000,
+    })
+  },
+  (error) => {
+    this.toastr.error('Some Error Occured !!,Pls try again after some time', 'Major Error', {
+      timeOut: 3000,
+    });
+  });
+}
 }

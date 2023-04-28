@@ -11,6 +11,8 @@ export class LandingPageService {
   public _landingPageDetails$: BehaviorSubject<any> = new BehaviorSubject<any>(
     null
   );
+
+
   constructor(private httpService:HttpService) { }
   public getLandingPageDetails(lab_id:any){
     return this.httpService.requestCall(
@@ -21,5 +23,14 @@ export class LandingPageService {
     )?.subscribe((res) => {
       this._landingPageDetails$.next(res);
     });
+  }
+
+  public sendFeedBack(data:any){
+    return this.httpService.requestCall(
+      ApiMethod.POST,
+      AuthEndPoints.SEND_FEEDBACK,
+      data,
+      ''      
+    );
   }
 }

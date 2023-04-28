@@ -7,7 +7,8 @@ export enum ApiMethod {
   
   export enum AuthEndPoints {
     GET_ALL_LABS = 'labs',
-    GET_PERSON_DETAILS = 'people/',
     GET_LANDING_PAGE_DETAILS = 'home/',
+    SEND_FEEDBACK = 'feedback',
+    GET_ALL_PEOPLE = 'people/',
   }
   
