@@ -34,7 +34,6 @@ import { FeaturesModule } from '../features/features.module';
    AdminAdmissionsComponent,
    AdminConferencesComponent,
    AdminProfileComponent
-   AdminConferencesComponent,
 
   ],
   imports: [
