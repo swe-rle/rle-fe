@@ -1,6 +1,6 @@
 // import { Component } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
@@ -10,10 +10,13 @@ import { Router } from '@angular/router';
 export class AdminHeaderComponent {
   id:any
   isLoaded:boolean=false
+  lab_id:any
   @Input() headerData: any;
-constructor(public router:Router)
+constructor(public router:Router,
+  public route:ActivatedRoute)
 {}
 ngOnInit(){
+  this.lab_id = this.route.snapshot.paramMap.get('lab_id');
 this.id = 1
 const myArray = window.location.href.split("/");
     const lastel = (myArray[myArray.length-1])

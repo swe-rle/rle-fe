@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component,} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import {  GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection } from 'ng-gallery';
 import { ToastrService } from 'ngx-toastr';
@@ -24,7 +25,8 @@ export class LandingPageComponent {
   constructor(private landingPageService:LandingPageService,
      private route: ActivatedRoute,
      private toastr: ToastrService,
-     private cdr: ChangeDetectorRef ) { }
+     private cdr: ChangeDetectorRef ,
+     private sanitizer: DomSanitizer) { }
 
 ngOnInit() {
   this.formdata = new FormGroup({ 
@@ -33,7 +35,7 @@ ngOnInit() {
     subject: new FormControl(""),
     message: new FormControl("")
  }); 
-  this.lab_id = this.route.snapshot.paramMap.get('lab_id');
+  this.lab_id = this.route.parent?.snapshot.paramMap.get('lab_id');
   this.images = [];
   this.config = {
    thumb:false,
@@ -70,21 +72,23 @@ getLandingPageDetails(lab_id:any){
 }
 
 onFeedBackSubmit(data:any) {
+  console.log(this.lab_id)
   var feedbackFormData = 
     {
-      "lab_id": Number(this.lab_id),
+      "lab_id": this.lab_id,
       "name": data.name ,
       "email":data.email,
       "subject": data.subject,
       "message": data.message 
     }
   
-  this.landingPageService.sendFeedBack(data)?.subscribe((res:any)=>{
+  this.landingPageService.sendFeedBack(feedbackFormData)?.subscribe((res:any)=>{
     this.toastr.success('Successfully sent the message, We will get back to you soon !!','Success', {
       timeOut: 3000,
     })
   },
   (error) => {
+    console.log(error);
     this.toastr.error('Some Error Occured !!,Pls try again after some time', 'Major Error', {
       timeOut: 3000,
     });

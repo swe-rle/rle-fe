@@ -19,7 +19,7 @@ import { ConferencesComponent } from './features/conferences/conferences.compone
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'features/6/home',
+    redirectTo: 'admin/6/home',
     pathMatch: 'full'
   },
   {

@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { GalleryComponent, GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection, ThumbnailsPosition, ThumbnailsView } from 'ng-gallery';
+import { ToastrService } from 'ngx-toastr';
+import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
 
 @Component({
   selector: 'app-admin-landing-page',
@@ -10,17 +14,36 @@ import { GalleryComponent, GalleryConfig, GalleryItem, ImageItem, LoadingStrateg
 export class AdminLandingPageComponent {
   config: GalleryConfig | undefined;
   images!: GalleryItem[];
-ngOnInit() {
-  this.images = [
-    new ImageItem({ src: 'assets/img/slider/compiler-1.jpg'}),
-    new ImageItem({ src: 'assets/img/slider/cse-2.jpg'}),
-    new ImageItem({ src: 'assets/img/slider/cse-1.jpg'}),
-    new ImageItem({ src: 'assets/img/slider/faculty-2.jpg'}),
-    new ImageItem({ src: 'assets/img/slider/faculty-1.jpg'}),
-    new ImageItem({ src: 'assets/img/slider/iith.jpg'}),
+  imagesList:any;
+  isSlidersEmpty:boolean = false
+  constructor(private landingPageService:LandingPageService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private cdr: ChangeDetectorRef) { }
+    isCoverImagePresent:boolean = true;
+    labOverviewform!:FormGroup
+    islabLogoPresent:boolean = true;
+    labLogo:any = ''
+    labCoverPage:any
+  public lab_id:any
+  public selectedFile !: File;
 
-    // ... more items
-  ];
+ngOnInit() {
+  this.labOverviewform = new FormGroup({
+    labName: new FormControl("",Validators.required),
+    labOverview: new FormControl("",Validators.required),
+    labCoverPage : new FormControl("",Validators.required),
+    labLogo : new FormControl("",Validators.required),
+    labTwitterHandle: new FormControl("",Validators.required),
+    labPhone: new FormControl("",Validators.required),
+    labEmail: new FormControl("",Validators.required),
+    labAddress: new FormControl("",Validators.required),
+  });
+  this.lab_id = this.route.parent?.snapshot.paramMap.get('lab_id');
+  this.getLandingPageDetails(this.lab_id)
+
+
+  this.images = [ ];
   this.config = {
    thumb:false,
    dots: true,
@@ -28,6 +51,35 @@ ngOnInit() {
     slidingDirection: SlidingDirection.Horizontal,
 
   };
+}
+
+getLandingPageDetails(lab_id:any){
+  this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
+   console.log(res)
+   this.labLogo = res.logo
+   this.labCoverPage = res.cover_url.blob_storage
+   this.labOverviewform.patchValue({
+    labName: res.name,
+    labOverview: res.overview,
+    labTwitterHandle: res.twitter_handle,
+    labPhone: res.contact_us.phone,
+    labEmail: res.contact_us.email,
+    labAddress: res.contact_us.address,
+  });
+  this.imagesList = res?.slider
+    this.images = []
+    this.imagesList.forEach((value:any, index:any) => {
+      this.images.push(new ImageItem({ src: value.image_url}));
+  });
+  
+  });
+  this.landingPageService.getLandingPageDetails(lab_id);
+}
+onlabOverviewSubmit(data:any){
+  
+}
+onFileSelected(event: any): void {
+  this.selectedFile = event.target.files[0]
 }
 
 }
