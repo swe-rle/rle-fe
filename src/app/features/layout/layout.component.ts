@@ -17,6 +17,7 @@ export class LayoutComponent  implements OnInit{
   constructor(private landingPageService:LandingPageService,
     private route: ActivatedRoute) { }
     ngOnInit(): void {
+      localStorage.setItem('adminId', '8' );
       new nav()
       this.lab_id = this.route.snapshot.paramMap.get('lab_id');
       this.getHeaderFooterDetails(this.lab_id)

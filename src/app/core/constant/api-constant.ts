@@ -14,7 +14,7 @@ export enum ApiMethod {
     GET_ALL_PUBLICATIONS = 'publications/',
     GET_ALL_CONFERENCES = 'conferences/',
     GET_GALLERY = 'gallery/',
-    GET_PROFILE='profile/',
+    GET_PROFILE='person/',
     ADD_PUBLICATION = 'publication',
     DELETE_PUBLICATION = 'publication?publication_id=',
     UPDATE_PUBLICATION = 'publication/',

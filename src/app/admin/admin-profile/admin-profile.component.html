@@ -28,43 +28,21 @@
                 <input type="personalweburl" class="form-control" id="personalweburl" placeholder="Personal WebUrl" formControlName = "PersonalWebUrl">
               </div>
             </div>
-            <div class="form-group row">
-              <!-- <div class="col-sm-4">
-                <input type="text" class="form-control" id="personrole" placeholder="Person Role" formControlName = "personRole">
-              </div> -->
-              <label for="personrole" class="col-sm-2 col-form-label">Person Role</label>
-              <select class="form-control" id="personrole" name="personrole">
-                <option value="">--Please select an option--</option>
-                <option value="student">student</option>
-                <option value="faculty">faculty</option>
-                <option value="staff">staff</option>
-                <option value="sponsor">sponsor</option>                
-              </select> 
-
-              <label for="userrole" class="col-sm-2 col-form-label">User Role</label>
-              <select class="form-control" id="userrole" name="userrole">
-                <option value="">--Please select an option--</option>
-                <option value="admin">admin</option>
-                <option value="user">user</option>
-                <option value="manager">manager</option>              
-              </select>
-            </div>
-
-            <div class="form-group row" style="margin-top:2rem ;">
-              <label for="personimage" class="col-sm-2 col-form-label">Person Photo to upload</label>
+            <div class="form-group row mt-4">
+              <label for="coverpage" class="col-sm-2 col-form-label">Lab Photo To upload</label>
               <div class="col-sm-4">
-                <input type="file" id="coverpage" (change)="onFileSelected($event)"  class="form-control"  formControlName = "PersonPhoto">
+                <input type="file" id="coverpage" (change)="onFileSelected($event)"  class="form-control" >
               </div>
-              <!-- <div class="col-sm-6">
-                <span *ngIf="!isPersonImagePresent">No Image Has Been Selected</span>
-                <img [src]="personimage" >
-              </div> -->
+              <div class="col-sm-6">
+                <img [src]="profilepic" alt="">
+              </div>
             </div>
             <div class="form-group row mt-4">
               <div class="col-sm-10  d-flex justify-content-center ">
                 <button type="submit" class="btn btn-primary px-10" style="padding-left: 2rem; padding-right: 2rem;margin-left: 6rem;">SAVE</button>
               </div>
             </div>
+            
           </form>
         </div>
       </div>
