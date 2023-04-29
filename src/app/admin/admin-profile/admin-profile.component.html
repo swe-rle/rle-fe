@@ -1,9 +1,9 @@
 <section id="intro" class="about-section" style="margin-top:5rem ;">
     <div class="container">
       <div class="row gutters justify-content-center">
-        <h1 style="text-align: center;">Add or Edit People</h1>
+        <h1 style="text-align: center;">Profile Details</h1>
         <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12 justify-content-between"> <!--col-xl-8 col-lg-12 col-md-12 col-sm-12-->
-          <form [formGroup]="peopleform" (ngSubmit)="onpeopleSubmit(peopleform.value)">
+          <form [formGroup]="profileform" (ngSubmit)="onprofileSubmit(profileform.value)">
             <div class="form-group row">
               <label for="inputpersonname" class="col-sm-2 col-form-label">Person Name</label>
               <div class="col-sm-4">
@@ -50,7 +50,7 @@
               </select>
             </div>
 
-            <div class="form-group row"  style="margin-top:2rem ;">
+            <div class="form-group row" style="margin-top:2rem ;">
               <label for="personimage" class="col-sm-2 col-form-label">Person Photo to upload</label>
               <div class="col-sm-4">
                 <input type="file" id="coverpage" (change)="onFileSelected($event)"  class="form-control"  formControlName = "PersonPhoto">

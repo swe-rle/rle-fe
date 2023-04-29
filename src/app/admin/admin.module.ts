@@ -15,6 +15,7 @@ import { GalleryModule } from 'ng-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { TableModule } from 'ngx-easy-table';
 import { TruncatePipe } from '../truncate.pipe';
 import { FeaturesModule } from '../features/features.module';
@@ -31,6 +32,8 @@ import { FeaturesModule } from '../features/features.module';
    AdminLandingPageComponent,
    AdminGalleryComponent,
    AdminAdmissionsComponent,
+   AdminConferencesComponent,
+   AdminProfileComponent
    AdminConferencesComponent,
 
   ],

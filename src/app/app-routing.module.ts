@@ -15,6 +15,7 @@ import { AdminAdmissionsComponent } from './admin/admin-admissions/admin-admissi
 import { AdminConferencesComponent } from './admin/admin-conferences/admin-conferences.component';
 import { PublicationsComponent } from './features/publications/publications.component';
 import { ConferencesComponent } from './features/conferences/conferences.component';
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,10 @@ const routes: Routes = [
     {
       path:'admissions',
       component:AdminAdmissionsComponent
+    },
+    {
+      path:'profile',
+      component:AdminProfileComponent
     }
   ]
   }
