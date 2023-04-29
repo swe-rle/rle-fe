@@ -38,7 +38,8 @@ export class ResearchService {
         ApiMethod.POST,
         AuthEndPoints.ADD_PUBLICATION,
         data,
-        ''
+        '',
+      { withCredentials: true }
       )
     }
 
@@ -47,7 +48,8 @@ export class ResearchService {
         ApiMethod.DELETE,
         AuthEndPoints.DELETE_PUBLICATION,
         '',
-        id
+        id,
+        { withCredentials: true }
       )
     }
 
