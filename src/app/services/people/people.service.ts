@@ -18,4 +18,14 @@ export class PeopleService {
     );
   }
 
+  getProfile(person_id:any)
+  {
+    return this.httpService.requestCall(
+      ApiMethod.GET,
+      AuthEndPoints.GET_PROFILE,
+      '',
+      person_id
+    )
+  }
+
 }

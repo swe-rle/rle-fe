@@ -15,6 +15,7 @@ import { GalleryModule } from 'ng-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 
 
@@ -28,7 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
    AdminLandingPageComponent,
    AdminGalleryComponent,
    AdminAdmissionsComponent,
-   AdminConferencesComponent
+   AdminConferencesComponent,
+   AdminProfileComponent
 
   ],
   imports: [
