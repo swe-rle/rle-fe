@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GalleryComponent, GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection, ThumbnailsPosition, ThumbnailsView } from 'ng-gallery';
+import { Config, Columns, DefaultConfig } from 'ngx-easy-table';
 import { ToastrService } from 'ngx-toastr';
 import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
 
@@ -16,6 +17,8 @@ export class AdminLandingPageComponent {
   images!: GalleryItem[];
   imagesList:any;
   isSlidersEmpty:boolean = false
+  public configuration!: Config;
+  public columns!: Columns[];
   constructor(private landingPageService:LandingPageService,
     private route: ActivatedRoute,
     private toastr: ToastrService,
@@ -29,6 +32,16 @@ export class AdminLandingPageComponent {
   public selectedFile !: File;
 
 ngOnInit() {
+  this.configuration = { ...DefaultConfig };
+  this.configuration.searchEnabled = true;
+  // ... etc.
+  this.columns = [
+    { key: 'phone', title: 'Phone' },
+    { key: 'age', title: 'Age' },
+    { key: 'company', title: 'Company' },
+    { key: 'name', title: 'Name' },
+    { key: 'isActive', title: 'STATUS' },
+  ];
   this.labOverviewform = new FormGroup({
     labName: new FormControl("",Validators.required),
     labOverview: new FormControl("",Validators.required),

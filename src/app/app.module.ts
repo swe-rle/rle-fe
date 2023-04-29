@@ -12,6 +12,7 @@ import { AdminModule } from './admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { TruncatePipe } from './truncate.pipe';
+import { TableModule } from 'ngx-easy-table';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -47,6 +48,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    TableModule
     
     
   ],

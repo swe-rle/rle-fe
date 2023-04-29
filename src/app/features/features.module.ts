@@ -40,7 +40,6 @@ import { ConferencesComponent } from './conferences/conferences.component';
     RouterModule,
     GalleryModule,
     BrowserAnimationsModule,
-    AdminModule,
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
@@ -51,6 +50,7 @@ import { ConferencesComponent } from './conferences/conferences.component';
     NgxExtendedPdfViewerModule ,
     
     
-  ]
+  ],
+  exports:[TruncatePipe]
 })
 export class FeaturesModule { }

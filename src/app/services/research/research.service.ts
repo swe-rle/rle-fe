@@ -33,5 +33,58 @@ export class ResearchService {
         lab_id    
       );
     }
+    public addPublication(data:any){
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.ADD_PUBLICATION,
+        data,
+        ''
+      )
+    }
+
+    deletePublication(id:any){
+      return this.httpService.requestCall(
+        ApiMethod.DELETE,
+        AuthEndPoints.DELETE_PUBLICATION,
+        '',
+        id
+      )
+    }
+
+    updatePublication(data:any,pub_id:any){
+      return this.httpService.requestCall(
+        ApiMethod.PUT,
+        AuthEndPoints.UPDATE_PUBLICATION,
+        data,
+        pub_id
+      )
+    }
+    public addConference(data:any){
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.ADD_CONFERENCE,
+        data,
+        ''
+      )
+    }
+
+    deleteConference(id:any){
+      return this.httpService.requestCall(
+        ApiMethod.DELETE,
+        AuthEndPoints.DELETE_CONFERENCE,
+        '',
+        id
+      )
+    }
+
+    updateConference(data:any,pub_id:any){
+      return this.httpService.requestCall(
+        ApiMethod.PUT,
+        AuthEndPoints.UPDATE_CONFERENCE,
+        data,
+        pub_id
+      )
+    }
+    
   
 }

@@ -15,6 +15,9 @@ import { GalleryModule } from 'ng-gallery';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { TableModule } from 'ngx-easy-table';
+import { TruncatePipe } from '../truncate.pipe';
+import { FeaturesModule } from '../features/features.module';
 
 
 
@@ -28,7 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
    AdminLandingPageComponent,
    AdminGalleryComponent,
    AdminAdmissionsComponent,
-   AdminConferencesComponent
+   AdminConferencesComponent,
 
   ],
   imports: [
@@ -44,6 +47,8 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    TableModule,
+    FeaturesModule
   ],
   exports:[]
 })

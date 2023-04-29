@@ -6,10 +6,15 @@
             </div>
         </div>
       <div class="row ">
-        <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 justify-content-between" *ngFor="let gal of gallery"> 
+        <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 justify-content-between" *ngFor="let gal of gallery;let i = index;"> 
         <h3>{{gal.title}}</h3>
         <h6>{{gal.description}}</h6>
-        
+        <gallery gallerize  [items]="galleryList[i]"  
+        [thumb]="config?.thumb!"
+        [dots]="config?.dots!"
+        [loadingStrategy]="config?.loadingStrategy!"
+        [slidingDirection]="config?.slidingDirection!"
+          ></gallery>
         </div>
     </div>
     </div>
