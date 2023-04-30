@@ -21,5 +21,8 @@ export enum ApiMethod {
     ADD_CONFERENCE = 'conference',
     DELETE_CONFERENCE = 'conference?conf_id=',
     UPDATE_CONFERENCE = 'conference/',
+    UPLOAD_IMAGE = 'uploadfile/',
+    UPDATE_LAB_CORE_DETAILS = 'lab/',
+    AUTHENTICATE_USER = 'auth/signin',
   }
   

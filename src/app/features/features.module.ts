@@ -18,7 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { TruncatePipe } from '../truncate.pipe';
 import { ConferencesComponent } from './conferences/conferences.component';
-import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -48,7 +48,8 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
       preventDuplicates: true,
     }),
     NgxExtendedPdfViewerModule ,
-    SocialLoginModule 
+    SocialLoginModule ,
+    GoogleSigninButtonModule
   ],
   exports:[TruncatePipe],
   providers: [
