@@ -20,7 +20,7 @@
           <li><a class="nav-link scrollto" (click)="setId(5)" [ngClass]="{'active': id === 5 }" routerLink="gallery">Add Gallery</a></li>
           <li><a class="nav-link scrollto" (click)="setId(6)" [ngClass]="{'active': id === 6 }" routerLink="profile" >Profile</a></li>
           <li><a class="nav-link scrollto"  [routerLink]="'/features/'+lab_id+'/home'">View Website</a></li>
-          <li><a class="nav-link scrollto" routerLink="/logout">logout</a></li>
+          <li><a class="nav-link scrollto" (click)="logout()">logout</a></li>
           <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

@@ -9,6 +9,8 @@ import {
 import { ApiMethod, AuthEndPoints } from '../../constant/api-constant';
 import { environment } from 'src/environments/environment';
 import { catchError, Observable, throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,7 @@ export class HttpService {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private toastr: ToastrService
   ) {}
 
   requestCall(
@@ -55,12 +58,17 @@ export class HttpService {
   }
 
   handleError(error: HttpErrorResponse, self: any) {
+    this.toastr.error('Please login as admin to continue',"", {
+      timeOut: 3000,
+    })
+    console.log("error",error,"1Login Please")
     if (error.status == 401) {
-      //this.router.navigate(['/login']);
+      // this.router.navigate(['/login']);
       // this.toasterService.show('Please login to continue.', {
       //   classname: 'toast-warning',
       //   delay: 5000,
       // });
+      console.log("error",error,"Login Please")
     }
     if (error.error instanceof ErrorEvent) {
       // console.log(error.error.message, self)
