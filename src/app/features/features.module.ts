@@ -19,7 +19,6 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { TruncatePipe } from '../truncate.pipe';
 import { ConferencesComponent } from './conferences/conferences.component';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
-import { GoogleSigninButtDirective } from './test/test.component';
 
 
 @NgModule({
@@ -35,7 +34,6 @@ import { GoogleSigninButtDirective } from './test/test.component';
     PublicationsComponent,
     TruncatePipe,
     ConferencesComponent,
-    GoogleSigninButtDirective
   ],
   imports: [
     CommonModule,

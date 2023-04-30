@@ -19,11 +19,6 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'test',
-    pathMatch: 'full'
-  },
-  {
     path: 'features/:lab_id',
   component: LayoutComponent,
   children: [
