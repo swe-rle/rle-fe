@@ -53,7 +53,7 @@ ngAfterViewInit(): void {
 }
 
 getLandingPageDetails(lab_id:any){
-  this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
+  this.landingPageService.getLandingPageDetails(lab_id)?.subscribe((res:any)=>{
     this.news = res.news
     this.landingPageDetails = res
     this.imagesList = res?.slider
@@ -67,7 +67,6 @@ getLandingPageDetails(lab_id:any){
   this.eventsList = res.events
   this.twitterHandle = res.twitter_handle.replace(/^./, "");
   });
-  this.landingPageService.getLandingPageDetails(lab_id);
   this.cdr.detectChanges();
 }
 

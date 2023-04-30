@@ -17,8 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { TableModule } from 'ngx-easy-table';
-import { TruncatePipe } from '../truncate.pipe';
 import { FeaturesModule } from '../features/features.module';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 
@@ -50,7 +50,8 @@ import { FeaturesModule } from '../features/features.module';
       preventDuplicates: true,
     }),
     TableModule,
-    FeaturesModule
+    FeaturesModule,
+    SocialLoginModule 
   ],
   exports:[]
 })

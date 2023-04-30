@@ -43,8 +43,7 @@
               "src/assets/vendor/glightbox/css/glightbox.min.css",
               "src/assets/vendor/swiper/swiper-bundle.min.css",
               "src/assets/css/style.css",
-              "node_modules/ngx-toastr/toastr.css" ,
-              "node_modules/ngx-easy-table/style.css"
+              "node_modules/ngx-toastr/toastr.css" 
             ],
             "scripts": [
               "src/assets/vendor/aos/aos.js",

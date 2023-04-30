@@ -20,7 +20,7 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'admin/6/home',
+    redirectTo: 'test',
     pathMatch: 'full'
   },
   {

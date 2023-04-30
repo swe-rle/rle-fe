@@ -23,7 +23,7 @@ export class LayoutComponent  implements OnInit{
       this.getHeaderFooterDetails(this.lab_id)
     }
   getHeaderFooterDetails(lab_id:any){
-    this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
+    this.landingPageService.getLandingPageDetails(lab_id)?.subscribe((res:any)=>{
       this.headerDetails = {
         "logo":res?.logo,
         "lab_name":res?.name,
@@ -33,9 +33,8 @@ export class LayoutComponent  implements OnInit{
         "contact_us":res?.contact_us,
         "lab_name":res?.name
     }
-  });
-    this.landingPageService.getLandingPageDetails(lab_id);
     this.isLoaded = true
+  });
   }
   
 }

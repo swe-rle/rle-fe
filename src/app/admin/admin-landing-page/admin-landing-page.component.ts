@@ -67,26 +67,24 @@ ngOnInit() {
 }
 
 getLandingPageDetails(lab_id:any){
-  this.landingPageService._landingPageDetails$.subscribe((res:any)=>{
-   console.log(res)
-   this.labLogo = res.logo
-   this.labCoverPage = res.cover_url.blob_storage
-   this.labOverviewform.patchValue({
-    labName: res.name,
-    labOverview: res.overview,
-    labTwitterHandle: res.twitter_handle,
-    labPhone: res.contact_us.phone,
-    labEmail: res.contact_us.email,
-    labAddress: res.contact_us.address,
-  });
-  this.imagesList = res?.slider
-    this.images = []
-    this.imagesList.forEach((value:any, index:any) => {
-      this.images.push(new ImageItem({ src: value.image_url}));
-  });
-  
-  });
-  this.landingPageService.getLandingPageDetails(lab_id);
+  this.landingPageService.getLandingPageDetails(lab_id)?.subscribe((res:any)=>{
+    console.log(res)
+    this.labLogo = res.logo
+    this.labCoverPage = res.cover_url.blob_storage
+    this.labOverviewform.patchValue({
+     labName: res.name,
+     labOverview: res.overview,
+     labTwitterHandle: res.twitter_handle,
+     labPhone: res.contact_us.phone,
+     labEmail: res.contact_us.email,
+     labAddress: res.contact_us.address,
+   });
+   this.imagesList = res?.slider
+     this.images = []
+     this.imagesList.forEach((value:any, index:any) => {
+       this.images.push(new ImageItem({ src: value.image_url}));
+   });
+   });
 }
 onlabOverviewSubmit(data:any){
   

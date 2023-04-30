@@ -18,6 +18,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { TruncatePipe } from '../truncate.pipe';
 import { ConferencesComponent } from './conferences/conferences.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtDirective } from './test/test.component';
 
 
 @NgModule({
@@ -32,8 +34,8 @@ import { ConferencesComponent } from './conferences/conferences.component';
     GalleryComponent,
     PublicationsComponent,
     TruncatePipe,
-    ConferencesComponent
-    
+    ConferencesComponent,
+    GoogleSigninButtDirective
   ],
   imports: [
     CommonModule,
@@ -48,9 +50,27 @@ import { ConferencesComponent } from './conferences/conferences.component';
       preventDuplicates: true,
     }),
     NgxExtendedPdfViewerModule ,
-    
-    
+    SocialLoginModule 
   ],
-  exports:[TruncatePipe]
+  exports:[TruncatePipe],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '658208509868-eobuvr8pnb5k1knq91cq27tl794rp67l.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ]
 })
 export class FeaturesModule { }
