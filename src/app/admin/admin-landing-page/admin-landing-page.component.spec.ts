@@ -28,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
           ToastrModule.forRoot(),
           GalleryModule,
           FormsModule,
-          ReactiveFormsModule
+          ReactiveFormsModule,
+          HttpClientTestingModule
         ],
         providers:[{
           provide:LandingPageService,useClass:MockLandingPageService
