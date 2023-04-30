@@ -8,7 +8,7 @@ declare var nav:any;
 })
 export class AdminLayoutComponent implements OnInit{
   ngOnInit(): void {
-    new nav()
+    new nav();
     localStorage.setItem('adminId', '8' );
   }
 
