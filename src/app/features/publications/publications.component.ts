@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResearchService } from 'src/app/services/research/research.service';
-declare var activateCSE:any;
+// declare var activateCSE:any;
 
 
 @Component({
@@ -18,7 +18,7 @@ export class PublicationsComponent implements OnInit{
   ngOnInit(): void {
     this.lab_id = this.route.parent?.snapshot.paramMap.get('lab_id');
     this.getAllPublications(this.lab_id)
-    new activateCSE();
+    // new activateCSE();
 
   }
   getAllPublications(lab_id:any){

@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img [src]="landingPageDetails.cover_url.blob_storage" class="img-fluid animated" alt="" style="border-radius: 10px;">
+          <img [src]="landingPageDetails.cover_url?.blob_storage" class="img-fluid animated" alt="" style="border-radius: 10px;">
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-journal-text"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.journalCount}}</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics?.journalCount}}</h1>
               <p class="description"> Journals  </p>
             </div>
           </div>
@@ -92,7 +92,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-diagram-3"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.conferencesCount}}</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics?.conferencesCount}}</h1>
               <p class="description"> Conferences  </p>
             </div>
           </div>
@@ -102,7 +102,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-check2-all"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.patentCount}}</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics?.patentCount}}</h1>
               <p class="description"> Patents  </p>
             </div>
           </div>
@@ -112,7 +112,7 @@
             <div class="icon-box">
               <div class="icon"> <i class="bi bi-file-easel"></i></div>
               <p></p>
-              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics.posterDemoCount}}</h1>
+              <h1 class="title" style="font-family:verdana;">{{landingPageDetails.metrics?.posterDemoCount}}</h1>
               <p class="description"> Posters and Demos  </p>
             </div>
           </div>
@@ -139,19 +139,19 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>{{landingPageDetails.contact_us.address}}</p>
+                <p>{{landingPageDetails.contact_us?.address}}</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{landingPageDetails.contact_us.email}}</p>
+                <p>{{landingPageDetails.contact_us?.email}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>{{landingPageDetails.contact_us.phone}}</p>
+                <p>{{landingPageDetails.contact_us?.phone}}</p>
               </div>
               <iframe src="https://www.google.co.in/maps/d/embed?mid=1M75qOcpSpjqhBeGCoi0cUG6LFco&ehbc=2E312F" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
