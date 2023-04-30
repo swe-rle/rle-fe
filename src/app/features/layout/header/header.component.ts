@@ -1,5 +1,7 @@
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +12,30 @@ export class HeaderComponent implements OnInit{
   id:any
   isLoaded:boolean=false
   @Input() headerData: any;
-constructor(public router:Router)
+  user:any
+  isLoggedin:any
+  lab_id:any
+constructor(public router:Router,
+            public route : ActivatedRoute,
+            private authService: SocialAuthService,
+            private loginService:AuthService)
 {}
 ngOnInit(){
+  this.lab_id = this.route.snapshot.paramMap.get('lab_id');
+this.authService.authState.subscribe((user) => {
+  this.user = user;
+  if(user!=null){
+  let data = {
+    "g_token":user.idToken,
+    "lab_id":this.lab_id
+  }
+  this.loginService.authenticateUser(data)?.subscribe((res:any)=>{
+    console.log(res)
+    // this.isLoggedin = (user != null);
+  })
+  console.log(this.user)
+}
+});
 this.id = 1
 const myArray = window.location.href.split("/");
     const lastel = (myArray[myArray.length-1])
@@ -52,26 +75,7 @@ const myArray = window.location.href.split("/");
 setId(id:number){
   this.id = id
 }
- parseJwt (token:any) {
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
 
-  return JSON.parse(jsonPayload);
-}
 
-   handleCredentialResponse(response:any) {
-  // decodeJwtResponse() is a custom function defined by you
-  // to decode the credential response.
-  const responsePayload = this.parseJwt(response.credential);
-  console.log(responsePayload,response.credential)
-  console.log("ID: " + responsePayload.sub);
-  console.log('Full Name: ' + responsePayload.name);
-  console.log('Given Name: ' + responsePayload.given_name);
-  console.log('Family Name: ' + responsePayload.family_name);
-  console.log("Image URL: " + responsePayload.picture);
-  console.log("Email: " + responsePayload.email);
-  }
+
 }

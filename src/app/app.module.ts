@@ -11,9 +11,8 @@ import { FeaturesModule } from './features/features.module';
 import { AdminModule } from './admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { TruncatePipe } from './truncate.pipe';
 import { TableModule } from 'ngx-easy-table';
-import { SocialLoginModule } from '@abacritt/angularx-social-login';
+import { httpInterceptorProviders } from './core/service/http/http.interceptor';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -50,11 +49,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
       preventDuplicates: true,
     }),
     TableModule,
-    SocialLoginModule
     
     
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

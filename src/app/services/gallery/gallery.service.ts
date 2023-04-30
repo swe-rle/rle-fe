@@ -18,4 +18,17 @@ export class GalleryService {
       );
     }
   }
+
+  uploadImage(file:any){
+    {
+      const formData = new FormData(); 
+      formData.append("file", file, file.name);
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.UPLOAD_IMAGE,
+        formData,
+        ''      
+      );
+    }
+  }
 }

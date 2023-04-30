@@ -26,4 +26,7 @@ export class LandingPageService {
       ''      
     );
   }
+
+  public updateLabCoreDetails(lab_id:any,data:any){
+  }
 }
