@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GalleryComponent, GalleryConfig, GalleryItem, ImageItem, LoadingStrategy, SlidingDirection, ThumbnailsPosition, ThumbnailsView } from 'ng-gallery';
@@ -14,9 +14,17 @@ import { LandingPageService } from 'src/app/services/landingpage/landing-page.se
 })
 
 export class AdminLandingPageComponent {
+  @ViewChild('coverPageInput')
+  coverPageInput!: ElementRef;
+  @ViewChild('logoInput')
+  logoInput!: ElementRef;
+  @ViewChild('sliderInput')
+  sliderInput!: ElementRef;
+
   config: GalleryConfig | undefined;
   selectedLogoFile!: File;
   images!: GalleryItem[];
+  labOverviewFormSubmitted = false;
   imagesList:any;
   isSlidersEmpty:boolean = false
   public configuration!: Config;
@@ -33,6 +41,7 @@ export class AdminLandingPageComponent {
     labCoverPage:any
   public lab_id:any
   public selectedCoverPageFile !: File;
+  public selectedSliderFile !: File;
 
 ngOnInit() {
   this.configuration = { ...DefaultConfig };
@@ -86,7 +95,30 @@ getLandingPageDetails(lab_id:any){
    });
 }
 onlabOverviewSubmit(data:any){
-  
+  this.labOverviewFormSubmitted = true;
+  if(this.labOverviewform.valid){
+   let updateData = {
+      "name": data.labName,
+      "overview": data.labOverview,
+      "address": data.labAddress,
+      "email": data.labEmail,
+      "phone": data.labPhone,
+      "twitter_handle": data.labTwitterHandle,
+      "lab_logo_url": this.labLogo,
+      "lab_cover_url": this.labCoverPage
+    }
+    this.landingPageService.updateLabCoreDetails(this.lab_id,updateData)?.subscribe((res:any)=>{
+      console.log(res)
+      this.toastr.success('','Lab Overview updated successfully', {
+        timeOut: 3000,
+      })
+    })
+  }
+  else{
+    this.toastr.error('','Please fill all the fields', {
+      timeOut: 3000,
+    })
+  }
 }
 onFileLogoSelected(event: any): void {
   this.selectedLogoFile = event.target.files[0]
@@ -94,6 +126,10 @@ onFileLogoSelected(event: any): void {
 
 onFileCoverPageSelected(event: any): void {
   this.selectedCoverPageFile = event.target.files[0]
+}
+
+onFileSliderSelected(event: any): void {
+  this.selectedSliderFile = event.target.files[0]
 }
 
 uploadImage(file:any, type:any){
@@ -104,9 +140,34 @@ uploadImage(file:any, type:any){
          console.log(res)
          if(type == 'logo'){
           this.labLogo = res.url
+          this.toastr.success('','Slider image added successfully', {
+            timeOut: 3000,
+          })
+          this.resetInput(this.logoInput);
           }
           if(type == 'coverPage'){
             this.labCoverPage = res.url
+            this.toastr.success('','Cover Page added successfully', {
+              timeOut: 3000,
+            })
+            this.resetInput(this.coverPageInput);
+
+          }
+          if(type == 'slider'){
+            let data = {
+              "slider_image": res.url,
+              "lab_id": this.lab_id
+            }
+            this.landingPageService.uploadSliderImage(data)?.subscribe((res1:any)=>{
+              console.log(res1)
+              this.toastr.success('','Slider image added successfully', {
+                timeOut: 3000,
+              })
+             this.resetInput(this.sliderInput);
+              this.imagesList.push({image_url:res.url,id:res1})
+            this.images.push(new ImageItem({ src: res.url}));
+            })
+            
           }
       }
   );
@@ -118,4 +179,17 @@ else{
 }
 }
 
+deleteSlider(event:any){
+ let slider_id = event.target.id
+this.landingPageService.deleteSliderImage(slider_id)?.subscribe((res:any)=>{
+  console.log(res)
+  this.toastr.success('','Slider image deleted successfully', {
+    timeOut: 3000,
+  })
+  this.getLandingPageDetails(this.lab_id)
+}
+)}
+resetInput(input:any) {
+  input.nativeElement.value = "";
+}
 }

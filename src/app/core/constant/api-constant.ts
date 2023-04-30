@@ -24,5 +24,9 @@ export enum ApiMethod {
     UPLOAD_IMAGE = 'uploadfile/',
     UPDATE_LAB_CORE_DETAILS = 'lab/',
     AUTHENTICATE_USER = 'auth/signin',
+    UPLOAD_SLIDER = 'sliderimage',
+    DELETE_SLIDER = 'slider?slider_id=',
+    ADD_PERSON = 'person',
+    UPDATE_PERSON = 'person/',
   }
   

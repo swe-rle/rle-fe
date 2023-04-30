@@ -28,5 +28,30 @@ export class LandingPageService {
   }
 
   public updateLabCoreDetails(lab_id:any,data:any){
+    return this.httpService.requestCall(
+      ApiMethod.PUT,
+      AuthEndPoints.UPDATE_LAB_CORE_DETAILS,
+      data,
+      lab_id      
+    );
   }
+
+  public uploadSliderImage(data:any){
+    return this.httpService.requestCall(
+      ApiMethod.POST,
+      AuthEndPoints.UPLOAD_SLIDER,
+      data,
+      ''      
+    );
+  }
+
+  public deleteSliderImage(slider_id:any){
+    return this.httpService.requestCall(
+      ApiMethod.DELETE,
+      AuthEndPoints.DELETE_SLIDER,
+      '',
+      slider_id      
+    );
+  }
+  
 }
