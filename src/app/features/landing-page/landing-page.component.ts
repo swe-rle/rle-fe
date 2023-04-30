@@ -49,7 +49,7 @@ ngOnInit() {
 }
 
 ngAfterViewInit(): void {
-  (<any>window).twttr.widgets.load();
+  (<any>window).twttr?.widgets.load();
 }
 
 getLandingPageDetails(lab_id:any){

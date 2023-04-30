@@ -64,7 +64,7 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
             )
           }
         ],
-        onError: (err) => {
+        onError: (err: any) => {
           console.error(err);
         }
       } as SocialAuthServiceConfig,

@@ -1,23 +1,65 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
 import { AdminProfileComponent } from './admin-profile.component';
+import { PeopleService } from 'src/app/services/people/people.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AdminModule } from '../admin.module';
 
-describe('AdminProfileComponent', () => {
-  let component: AdminProfileComponent;
-  let fixture: ComponentFixture<AdminProfileComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AdminProfileComponent ]
+describe('AdminProfileComponent',()=>{
+    beforeEach(async(()=>{
+      TestBed.configureTestingModule({
+        imports:[
+          RouterTestingModule,
+          HttpClientTestingModule,
+          AdminModule
+        ],
+        declarations:[
+            AdminProfileComponent
+        ],
+        providers:[
+          PeopleService,
+        ]
+      }).compileComponents();
+    }));
+    it('should create the app',()=>{
+      const fixture = TestBed.createComponent(AdminProfileComponent);
+      const component = fixture.debugElement.componentInstance;
+      expect(component).toBeTruthy();
+    });
+  
+    it('should call ngon init',()=>{
+      const fixture = TestBed.createComponent(AdminProfileComponent);
+      const component = fixture.debugElement.componentInstance;
+      let spy_getProfileData = spyOn(component,"getProfileData").and.returnValue([]);
+      component.ngOnInit();
+      expect(component.getProfileData()).toEqual([]);
     })
-    .compileComponents();
+  })
+  
 
-    fixture = TestBed.createComponent(AdminProfileComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+// describe('AdminProfileComponent', () => {
+//   let component: AdminProfileComponent;
+//   let fixture: ComponentFixture<AdminProfileComponent>;
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   beforeEach(async () => {
+//     var peopleServiceSpy=jasmine.createSpyObj('PeopleService','getProfileData');
+
+//     await TestBed.configureTestingModule({
+//       declarations: [ AdminProfileComponent ],
+//       providers:[
+//         {provide: PeopleService, useValue: peopleServiceSpy}
+//       ]
+//     })
+//     .compileComponents();
+
+//     fixture = TestBed.createComponent(AdminProfileComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
+
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
