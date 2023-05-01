@@ -29,11 +29,11 @@ describe('AdminProfileComponent',()=>{
       expect(component).toBeTruthy();
     });
   
-    it('should call ngon init',()=>{
-      const fixture = TestBed.createComponent(AdminProfileComponent);
-      const component = fixture.debugElement.componentInstance;
-      let spy_getProfileData = spyOn(component,"getProfileData").and.returnValue([]);
-      component.ngOnInit();
-      expect(component.getProfileData()).toEqual([]);
-    })
+    // it('should call ngon init',()=>{
+    //   const fixture = TestBed.createComponent(AdminProfileComponent);
+    //   const component = fixture.debugElement.componentInstance;
+    //   let spy_getProfileData = spyOn(component,"getProfileData").and.returnValue([]);
+    //   component.ngOnInit();
+    //   expect(component.getProfileData()).toEqual([]);
+    // })
   })

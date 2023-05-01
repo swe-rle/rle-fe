@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
-import jwt_decode from "jwt-decode";
 
 declare var nav:any;
 
@@ -19,8 +18,7 @@ export class LayoutComponent  implements OnInit{
   isLoaded:boolean = false
 
   constructor(private landingPageService:LandingPageService,
-    private route: ActivatedRoute,
-    private cookieService: CookieService) { }
+    private route: ActivatedRoute) { }
     ngOnInit(): void {
       localStorage.setItem('personRole', 'student' );
       new nav()
