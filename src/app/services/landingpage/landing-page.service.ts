@@ -62,5 +62,18 @@ export class LandingPageService {
       lab_id      
     );
   }
+
+  public multiDeleteFeedback(data:any){
+    const options = { body: data };
+    return this.httpService.requestCall(
+      ApiMethod.DELETE,
+      AuthEndPoints.MULTI_DELETE_FEEDBACK,
+      '',
+      '',
+      options   
+    );
+  }
+
+ 
   
 }

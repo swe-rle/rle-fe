@@ -33,5 +33,8 @@ export enum ApiMethod {
     UPLOAD_MULTIPLE_IMAGES = 'uploadfile/multiple',
     ADD_GALLERY_EVENT = 'newevent',
     GET_ALL_FEEDBACK = 'feedback/',
+    MULTI_DELETE_FEEDBACK = 'feedback', 
+    ADD_LAB = 'lab',
+    DELETE_LAB = 'lab?lab_id=',
   }
   

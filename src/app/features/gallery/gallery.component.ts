@@ -20,8 +20,13 @@ export class GalleryComponent implements OnInit{
   ];
   galleryList:any
   imagesList:any;
+  myScriptElement: HTMLScriptElement;
   constructor(private galleryService:GalleryService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) { 
+      this.myScriptElement = document.createElement("script");
+      this.myScriptElement.src = "https://cse.google.com/cse.js?cx=4579cd520ae3c4467";
+      document.body.appendChild(this.myScriptElement);
+    }
 
   ngOnInit(): void {
     this.lab_id = this.route.parent?.snapshot.paramMap.get('lab_id');

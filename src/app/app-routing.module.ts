@@ -18,6 +18,7 @@ import { ConferencesComponent } from './features/conferences/conferences.compone
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { AuthguardGuard } from './core/shared/guard/authguard.guard';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
+import { AdminLabComponent } from './admin/admin-lab/admin-lab.component';
 
 const routes: Routes = [
   {
@@ -95,6 +96,10 @@ const routes: Routes = [
     {
       path:'feedback',
       component:AdminFeedbackComponent
+    },
+    {
+      path:'addlab',
+      component:AdminLabComponent
     }
   ]
   }
