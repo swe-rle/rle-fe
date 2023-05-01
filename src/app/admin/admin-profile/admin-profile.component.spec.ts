@@ -37,29 +37,3 @@ describe('AdminProfileComponent',()=>{
       expect(component.getProfileData()).toEqual([]);
     })
   })
-  
-
-// describe('AdminProfileComponent', () => {
-//   let component: AdminProfileComponent;
-//   let fixture: ComponentFixture<AdminProfileComponent>;
-
-//   beforeEach(async () => {
-//     var peopleServiceSpy=jasmine.createSpyObj('PeopleService','getProfileData');
-
-//     await TestBed.configureTestingModule({
-//       declarations: [ AdminProfileComponent ],
-//       providers:[
-//         {provide: PeopleService, useValue: peopleServiceSpy}
-//       ]
-//     })
-//     .compileComponents();
-
-//     fixture = TestBed.createComponent(AdminProfileComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
