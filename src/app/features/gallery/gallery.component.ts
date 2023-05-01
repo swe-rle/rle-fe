@@ -10,9 +10,14 @@ import { GalleryService } from 'src/app/services/gallery/gallery.service';
 })
 export class GalleryComponent implements OnInit{
   lab_id:any
-  gallery:any
+  isLoaded = false;
+  imagegallery:any
   config: GalleryConfig | undefined;
   images!: GalleryItem[];
+  imageData2 = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxqIx_mRW4_D2ZYyja19Oz6wu7pe6fC4S5sJSBtAkZUYIV7VnLNy-xh1SJZaus48Z6T08pUHXup74&usqp=CAU&ec=48665699",
+    "https://mec.edu.in/wp-content/uploads/2020/12/26-mech.jpg"
+  ];
   galleryList:any
   imagesList:any;
   constructor(private galleryService:GalleryService,
@@ -25,18 +30,19 @@ export class GalleryComponent implements OnInit{
   getGallery(lab_id:any){
     this.galleryService.getGallery(lab_id)?.subscribe((res:any)=>{
       console.log(res)
-      this.gallery = res
+      this.imagegallery = res
       this.galleryList = []
-      this.gallery.forEach((value:any, index1:any) => {
+      this.imagegallery.forEach((value:any, index1:any) => {
         let imagesList = value.images
         this.galleryList[index1] = []
         imagesList.forEach((value:any, index2:any) => {
+
           this.galleryList[index1][index2]=new ImageItem({ src: value.url});
       });
-      console.log(imagesList)
+      console.log(this.galleryList)
     });
     console.log(this.galleryList)
-      
+      this.isLoaded = true;
     })
   }
 

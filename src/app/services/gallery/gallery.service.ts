@@ -31,4 +31,32 @@ export class GalleryService {
       );
     }
   }
+
+  uploadMultipleImages(files:any){
+    {
+      const formData = new FormData(); 
+      console.log(files)
+      for(let i=0;i<files.length;i++){
+        formData.append("files", files[i], files[i].name);
+      }
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.UPLOAD_MULTIPLE_IMAGES,
+        formData,
+        ''      
+      );
+  }
+}
+
+  addGalleryEvent(data:any){
+    {
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.ADD_GALLERY_EVENT,
+        data,
+        ''      
+      );
+    }
+  }
+  
 }

@@ -19,7 +19,7 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { TruncatePipe } from '../truncate.pipe';
 import { ConferencesComponent } from './conferences/conferences.component';
 import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
-
+import { LightboxModule } from 'ng-gallery/lightbox';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig,
     }),
     NgxExtendedPdfViewerModule ,
     SocialLoginModule ,
-    GoogleSigninButtonModule
+    GoogleSigninButtonModule,
+    LightboxModule
   ],
   exports:[TruncatePipe],
   providers: [

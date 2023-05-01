@@ -25,9 +25,9 @@ export class LabMembersComponent implements OnInit {
   getAllLabMemberDetails(lab_id:any){
   this.peopleService.getAllPeople(lab_id)?.subscribe((res:any)=>{
     console.log('entire response',res)
-    this.facultyList = res.filter((data: { role_name: string; }) => data.role_name =='faculty');
-    this.studentsList = res.filter((data: { role_name: string; }) => data.role_name =='student');
-    this.sponsorsList = res.filter((data: { role_name: string; }) => data.role_name =='sponsor');
+    this.facultyList = res.filter((data: { user_role_name: string; }) => data.user_role_name =='faculty');
+    this.studentsList = res.filter((data: { user_role_name: string; }) => data.user_role_name =='student');
+    this.sponsorsList = res.filter((data: { user_role_name: string; }) => data.user_role_name =='sponsor');
     this.isLoaded = true
   })
   }

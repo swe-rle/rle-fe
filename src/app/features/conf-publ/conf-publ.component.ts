@@ -8,9 +8,9 @@ import { ResearchService } from 'src/app/services/research/research.service';
   styleUrls: ['./conf-publ.component.scss']
 })
 export class ConfPublComponent implements OnInit{
-  constructor(private researchService:ResearchService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(public researchService:ResearchService,
+    public route: ActivatedRoute,
+    public router: Router) { }
   public lab_id:any
   public recentPublications:any
   public upcomingConferences:any

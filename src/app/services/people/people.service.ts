@@ -28,4 +28,31 @@ export class PeopleService {
     )
   }
 
+  addPeople(data:any)
+  {
+    return this.httpService.requestCall(
+      ApiMethod.POST,
+      AuthEndPoints.ADD_PERSON,
+      data,
+      ''
+    )
+  }
+
+  updatePerson(data:any,person_id:any){
+    return this.httpService.requestCall(
+      ApiMethod.PUT,
+      AuthEndPoints.UPDATE_PERSON,
+      data,
+      person_id
+    )
+  }
+
+  deleteLabMember(person_id:any){
+    return this.httpService.requestCall(
+      ApiMethod.DELETE,
+      AuthEndPoints.DELETE_LAB_MEMBER,
+      '',
+      person_id
+    )
+  }
 }
