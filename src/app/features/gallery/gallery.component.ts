@@ -47,3 +47,4 @@ export class GalleryComponent implements OnInit{
   }
 
 }
+

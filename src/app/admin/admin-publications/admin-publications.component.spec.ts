@@ -38,28 +38,3 @@ describe('AdminPublicationsComponent',()=>{
     })
   })
  
-
-// describe('AdminPublicationsComponent', () => {
-//   let component: AdminPublicationsComponent;
-//   let fixture: ComponentFixture<AdminPublicationsComponent>;
-
-//   beforeEach(async () => {
-//     var researchServiceSpy=jasmine.createSpyObj('ResearchService','getAllPublications');
-
-//     await TestBed.configureTestingModule({
-//       declarations: [ AdminPublicationsComponent ],
-//       providers:[
-//         {provide: ResearchService, useValue: researchServiceSpy}
-//       ]
-//     })
-//     .compileComponents();
-
-//     fixture = TestBed.createComponent(AdminPublicationsComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });

@@ -37,28 +37,3 @@ describe('AdminPeopleComponent',()=>{
     expect(component.getAllLabMemberDetails()).toEqual([]);
   })
 })
-
-// describe('AdminPeopleComponent', () => {
-//   let component: AdminPeopleComponent;
-//   let fixture: ComponentFixture<AdminPeopleComponent>;
-
-//   beforeEach(async () => {
-//     var peopleServiceSpy=jasmine.createSpyObj('PeopleService','getAllLabMemberDetails');
-
-//     await TestBed.configureTestingModule({
-//       declarations: [ AdminPeopleComponent ],
-//       providers:[
-//         {provide: PeopleService, useValue: peopleServiceSpy}
-//       ]
-//     })
-//     .compileComponents();
-
-//     fixture = TestBed.createComponent(AdminPeopleComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
