@@ -19,6 +19,8 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { TableModule } from 'ngx-easy-table';
 import { FeaturesModule } from '../features/features.module';
 import { SocialLoginModule } from '@abacritt/angularx-social-login';
+import { CookieService } from 'ngx-cookie-service';
+import { AdminFeedbackComponent } from './admin-feedback/admin-feedback.component';
 
 
 
@@ -33,8 +35,8 @@ import { SocialLoginModule } from '@abacritt/angularx-social-login';
    AdminGalleryComponent,
    AdminAdmissionsComponent,
    AdminConferencesComponent,
-   AdminProfileComponent
-
+   AdminProfileComponent,
+   AdminFeedbackComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,7 @@ import { SocialLoginModule } from '@abacritt/angularx-social-login';
     }),
     TableModule,
     FeaturesModule,
-    SocialLoginModule 
+    SocialLoginModule ,
   ],
   exports:[]
 })

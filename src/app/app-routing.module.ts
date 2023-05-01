@@ -16,6 +16,8 @@ import { AdminConferencesComponent } from './admin/admin-conferences/admin-confe
 import { PublicationsComponent } from './features/publications/publications.component';
 import { ConferencesComponent } from './features/conferences/conferences.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { AuthguardGuard } from './core/shared/guard/authguard.guard';
+import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 
 const routes: Routes = [
   {
@@ -60,6 +62,7 @@ const routes: Routes = [
   {
     path: 'admin/:lab_id',
   component: AdminLayoutComponent,
+  canActivate:[AuthguardGuard],
   children: [
     {
       path:'home',
@@ -88,6 +91,10 @@ const routes: Routes = [
     {
       path:'profile',
       component:AdminProfileComponent
+    },
+    {
+      path:'feedback',
+      component:AdminFeedbackComponent
     }
   ]
   }
