@@ -1,7 +1,7 @@
 // import { Component } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-admin-header',
   templateUrl: './admin-header.component.html',
@@ -13,7 +13,8 @@ export class AdminHeaderComponent {
   lab_id:any
   @Input() headerData: any;
 constructor(public router:Router,
-  public route:ActivatedRoute)
+  public route:ActivatedRoute,
+  private cookieService: CookieService)
 {}
 ngOnInit(){
   this.lab_id = this.route.snapshot.paramMap.get('lab_id');
@@ -45,14 +46,6 @@ const myArray = window.location.href.split("/");
         this.id = 6;
         break;
       }
-      // case 'officebearers'||'officebearers2021'||'officebearers2020'||'officebearers2019':{
-      //   this.id = 6;
-      //   break;
-      // }
-      // case 'more':{
-      //   this.id = 7;
-      //   break;
-      // }
     }
     this.isLoaded=true
 }
@@ -61,7 +54,9 @@ setId(id:number){
 }
 
 logout(){
-  document.cookie = "rle_session" +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+  this.cookieService.delete('rle_session');
+  let url = '/features/'+this.lab_id+'/home'
+  this.router.navigate([url])
 }
 
 }

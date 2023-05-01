@@ -53,5 +53,14 @@ export class LandingPageService {
       slider_id      
     );
   }
+
+  public getAllFeedback(lab_id:any){
+    return this.httpService.requestCall(
+      ApiMethod.GET,
+      AuthEndPoints.GET_ALL_FEEDBACK,
+      '',
+      lab_id      
+    );
+  }
   
 }

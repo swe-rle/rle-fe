@@ -2,7 +2,8 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
-
+import jwt_decode from "jwt-decode";
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,11 +19,19 @@ export class HeaderComponent implements OnInit{
 constructor(public router:Router,
             public route : ActivatedRoute,
             private authService: SocialAuthService,
-            private loginService:AuthService)
+            private loginService:AuthService,
+            private cookieService: CookieService)
 {}
 ngOnInit(){
   this.lab_id = this.route.snapshot.paramMap.get('lab_id');
-this.authService.authState.subscribe((user) => {
+  if(this.cookieService.check('rle_session')){
+    this.isLoggedin = true
+    this.user = jwt_decode(this.cookieService.get('rle_session'))
+  }
+  else{
+    this.isLoggedin = false
+  }
+  this.authService.authState.subscribe((user) => {
   this.user = user;
   if(user!=null){
   let data = {
@@ -30,8 +39,7 @@ this.authService.authState.subscribe((user) => {
     "lab_id":this.lab_id
   }
   this.loginService.authenticateUser(data)?.subscribe((res:any)=>{
-    console.log(res)
-    // this.isLoggedin = (user != null);
+    this.isLoggedin = true
   })
   console.log(this.user)
 }

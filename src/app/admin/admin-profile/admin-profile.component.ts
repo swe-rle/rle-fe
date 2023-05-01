@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import { PeopleService } from 'src/app/services/people/people.service';
+import jwt_decode from "jwt-decode";
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-admin-profile',
@@ -18,7 +21,8 @@ export class AdminProfileComponent {
     private route: ActivatedRoute,
     private toastr: ToastrService,
     private cdr: ChangeDetectorRef,
-    private galleryService:GalleryService) { }
+    private galleryService:GalleryService,
+    private cookieService:CookieService) { }
     isPersonImagePresent:boolean = true;
     profileform!:FormGroup
     profilepic:any
@@ -30,8 +34,9 @@ export class AdminProfileComponent {
     personRole:any
 
   ngOnInit() {
-    this.personId = 6
-    this.userRole = localStorage.getItem('userRole');
+    let user_info:any = jwt_decode(this.cookieService.get('rle_session'))
+    this.personId = user_info.person_id
+    this.userRole = user_info.role_name
     this.personRole = localStorage.getItem('personRole');
     this.profileform = new FormGroup({
       PersonName: new FormControl("",Validators.required),

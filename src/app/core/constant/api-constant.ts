@@ -32,5 +32,6 @@ export enum ApiMethod {
     GET_ALL_EVENTS = 'events/',
     UPLOAD_MULTIPLE_IMAGES = 'uploadfile/multiple',
     ADD_GALLERY_EVENT = 'newevent',
+    GET_ALL_FEEDBACK = 'feedback/',
   }
   

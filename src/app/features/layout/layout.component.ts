@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { LandingPageService } from 'src/app/services/landingpage/landing-page.service';
+import jwt_decode from "jwt-decode";
+
 declare var nav:any;
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  providers:[CookieService]
 })
 export class LayoutComponent  implements OnInit{
   headerDetails:any
@@ -15,10 +19,9 @@ export class LayoutComponent  implements OnInit{
   isLoaded:boolean = false
 
   constructor(private landingPageService:LandingPageService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private cookieService: CookieService) { }
     ngOnInit(): void {
-      localStorage.setItem('adminId', '6' );
-      localStorage.setItem('userRole', 'admin' );
       localStorage.setItem('personRole', 'student' );
       new nav()
       this.lab_id = this.route.snapshot.paramMap.get('lab_id');

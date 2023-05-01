@@ -6,7 +6,7 @@ import { HttpService } from 'src/app/core/service/http/http.service';
   providedIn: 'root'
 })
 export class AuthService {
-
+public isLoggedin:any
   constructor(private httpService:HttpService) { }
 
   public authenticateUser(data:any){

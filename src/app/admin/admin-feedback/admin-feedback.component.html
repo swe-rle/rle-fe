@@ -1,0 +1,24 @@
+<section id="intro" class="about-section" style="margin-top:5rem ;">
+    <div class="container">
+      <div class="row gutters justify-content-center">
+        <h1 style="text-align: center;">View or Delete Feedback</h1>
+        <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12 justify-content-between"> <!--col-xl-8 col-lg-12 col-md-12 col-sm-12-->
+            <ng-template #selectAllTemplate let-changeEvent>
+                <label class="ngx-form-checkbox">
+                  <input type="checkbox" (input)="changeEvent()" />
+                  <i class="ngx-form-icon custom-checkbox-color" id="selectAllCheckbox"></i>
+                </label>
+              </ng-template>
+              <ngx-table
+                [configuration]="configuration"
+                [data]="data"
+                [columns]="columns"
+                [selectAllTemplate]="selectAllTemplate"
+              >
+              </ngx-table>
+        </div>
+      </div>
+         
+        </div>
+  </section>
+  
