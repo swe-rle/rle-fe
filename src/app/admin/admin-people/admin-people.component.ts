@@ -59,6 +59,7 @@ export class AdminPeopleComponent {
   }
 
   onpeopleSubmit(data:any){
+    console.log(this.selectedRow)
     this.isPeopleFormSubmitted = true
     if(this.peopleform.valid){
       if(this.selectedRow!=null){
@@ -83,7 +84,10 @@ export class AdminPeopleComponent {
           this.isPeopleFormSubmitted = false
           this.getAllLabMemberDetails(this.lab_id)
           this.selectedRow = null
+          this.profilePhoto = ''
+          
         })
+        
       }
       else{
       let formdata = {
@@ -105,6 +109,8 @@ export class AdminPeopleComponent {
         this.peopleform.reset()
         this.isPeopleFormSubmitted = false
         this.getAllLabMemberDetails(this.lab_id)
+        this.selectedRow = null
+        this.profilePhoto = ''
       })
     }
     }
@@ -171,11 +177,8 @@ export class AdminPeopleComponent {
     input.nativeElement.value = "";
   }
   onEditClick(e:any){
-
-  }
-  onEvent(event: { event: string; value: any }): void {
-    console.log(event)
-    this.selectedRow = event.value.row
+    console.log(e)
+    this.selectedRow = e
     console.log(this.selectedRow,"selectedRow")
     this.peopleform.patchValue({
       PersonName: this.selectedRow.name,
@@ -186,11 +189,15 @@ export class AdminPeopleComponent {
       PersonRole: this.selectedRow.user_role_name,
       UserRole: this.selectedRow.user_access,
     });
-    this.profilePhoto = this.selectedRow.profile_url
-   
-  }
+    this.profilePhoto = this.selectedRow.profile_url  }
   onDeleteClick(e:any){
-
-    console.log(e)
+    let person_id = e.id
+    this.peopleService.deleteLabMember(person_id)?.subscribe((res:any)=>{
+      console.log('response',res)
+      this.toastr.success('Person Deleted Successfully','Success', {
+        timeOut: 3000,
+      })
+      this.getAllLabMemberDetails(this.lab_id)
+    })  
   }
 }

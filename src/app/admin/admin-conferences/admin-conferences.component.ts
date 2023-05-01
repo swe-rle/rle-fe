@@ -68,6 +68,7 @@ export class AdminConferencesComponent implements OnInit{
         console.log(data)
         this.getAllConferences(this.lab_id);
         this.publicationform.reset();
+        this.selectedRow = null;
       })
     }
     else{
@@ -84,6 +85,7 @@ export class AdminConferencesComponent implements OnInit{
         console.log(data)
         this.getAllConferences(this.lab_id);
         this.publicationform.reset();
+        this.selectedRow = null;
       })
     }
   }

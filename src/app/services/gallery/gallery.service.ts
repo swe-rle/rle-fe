@@ -31,4 +31,19 @@ export class GalleryService {
       );
     }
   }
+
+  uploadMultipleImages(files:any){
+      const formData = new FormData(); 
+      for(let i=0;i<files.length;i++){
+        formData.append("file", files[i], files[i].name);
+      }
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.UPLOAD_MULTIPLE_IMAGES,
+        formData,
+        ''      
+      );
+  }
+
+  
 }

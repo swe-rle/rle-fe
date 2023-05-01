@@ -47,4 +47,12 @@ export class PeopleService {
     )
   }
 
+  deleteLabMember(person_id:any){
+    return this.httpService.requestCall(
+      ApiMethod.DELETE,
+      AuthEndPoints.DELETE_LAB_MEMBER,
+      '',
+      person_id
+    )
+  }
 }

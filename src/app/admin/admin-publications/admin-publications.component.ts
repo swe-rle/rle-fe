@@ -66,6 +66,7 @@ export class AdminPublicationsComponent implements OnInit{
         console.log(data)
         this.getAllPublications(this.lab_id);
         this.publicationform.reset();
+        this.selectedRow = null;
       })
     }
     else{
@@ -81,6 +82,7 @@ export class AdminPublicationsComponent implements OnInit{
       this.researchService.updatePublication(updatePubData,pub_id)?.subscribe((data:any)=>{
         this.getAllPublications(this.lab_id);
         this.publicationform.reset();
+        this.selectedRow = null;
       })
     }
   }

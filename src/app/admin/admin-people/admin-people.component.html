@@ -86,7 +86,7 @@
                  <ngx-table [configuration]="configuration"
                [data]="allPeopleData"
                [columns]="columns"
-               (event)="onEvent($event)">
+               >
                <ng-template let-row>
                 <td>
                   <div class="font-small">{{ row.name }}</div>
@@ -104,10 +104,10 @@
                   <ul class="list-inline m-0">
                     
                     <li class="list-inline-item">
-                        <button (click)="onEditClick($event)" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></button>
+                        <button (click)="onEditClick(row)" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></button>
                     </li>
                     <li class="list-inline-item">
-                        <button (click)="onDeleteClick($event)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
+                        <button (click)="onDeleteClick(row)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
                     </li>
                 </ul>
                 </td>

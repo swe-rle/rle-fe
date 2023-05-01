@@ -28,5 +28,8 @@ export enum ApiMethod {
     DELETE_SLIDER = 'slider?slider_id=',
     ADD_PERSON = 'person',
     UPDATE_PERSON = 'person/',
+    DELETE_LAB_MEMBER = 'person?labmember_id=',
+    GET_ALL_EVENTS = 'events/',
+    UPLOAD_MULTIPLE_IMAGES = 'uploadfile/multiple',
   }
   
