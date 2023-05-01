@@ -21,6 +21,7 @@ import { FeaturesModule } from '../features/features.module';
 import { SocialLoginModule } from '@abacritt/angularx-social-login';
 import { CookieService } from 'ngx-cookie-service';
 import { AdminFeedbackComponent } from './admin-feedback/admin-feedback.component';
+import { AdminLabComponent } from './admin-lab/admin-lab.component';
 
 
 
@@ -37,6 +38,7 @@ import { AdminFeedbackComponent } from './admin-feedback/admin-feedback.componen
    AdminConferencesComponent,
    AdminProfileComponent,
    AdminFeedbackComponent,
+   AdminLabComponent,
   ],
   imports: [
     CommonModule,

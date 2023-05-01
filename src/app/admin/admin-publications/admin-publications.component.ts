@@ -33,6 +33,7 @@ export class AdminPublicationsComponent implements OnInit{
       { key: 'description', title: 'Description' },
       { key: 'blob_storage', title: 'PDF LINK' },
       { key: 'type', title: 'Publication Type' },
+      {key:'Actions',title:'Actions'}
     ];
     this.publicationform = new FormGroup({
       pubTitle: new FormControl(""),
@@ -86,19 +87,18 @@ export class AdminPublicationsComponent implements OnInit{
       })
     }
   }
-  onEditClick(){
-    
-  }
-  onEvent(event: { event: string; value: any }): void {
-    console.log(event)
-    this.selectedRow = event.value.row
-    console.log(this.selectedRow,"selectedRow")
+  onEditClick(row:any){
+    this.selectedRow = row
     this.publicationform.patchValue({
       pubTitle: this.selectedRow.pub_title,
       pubDescription: this.selectedRow.description,
       pubPdfUrl : this.selectedRow.blob_storage,
       pubType: this.selectedRow.type,
     });
+  }
+  onEvent(event: { event: string; value: any }): void {
+    this.selectedRow = event.value.row
+   
   }
   clearForm(){
     this.selectedRow = null;
@@ -114,9 +114,10 @@ export class AdminPublicationsComponent implements OnInit{
   get pubType() {
     return this.publicationform.get('pubType');
   }
-  onDeleteClick(){
+  onDeleteClick(row:any){
     console.log(this.selectedRow)
-    let pub_id = this.selectedRow.id
+    this.selectedRow = row
+    let pub_id = row.id
     this.researchService.deletePublication(pub_id)?.subscribe((data:any)=>{
       this.getAllPublications(this.lab_id);
       this.publicationform.reset();

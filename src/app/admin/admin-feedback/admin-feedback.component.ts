@@ -40,10 +40,25 @@ export class AdminFeedbackComponent implements OnInit{
   tableEventEmitted(event: { event: string; value: any }): void {
     if (event.event === 'onSelectAll') {
       this.data.forEach((row: any) => (row.selected = event.value));
+      this.selectedArrayIds = []
+    this.selectedArrayIds.push(...this.data.filter((row) => row.selected).map(x => x.id));
     }
   }
-
+selectedArrayIds:any = []
   rowSelected(): void {
     this.allSelected = this.data.every((row) => !!row.selected);
+    this.selectedArrayIds = []
+    this.selectedArrayIds.push(...this.data.filter((row) => row.selected).map(x => x.id));
   }
+
+  multiDeleteFeedback(){
+    console.log(this.selectedArrayIds)
+    this.landingPageService.multiDeleteFeedback(this.selectedArrayIds)?.subscribe((res:any)=>{
+      console.log(res)
+      if(res.success){
+        this.getAllFeedback(this.lab_id)
+      }
+    })
+  }
+
 }

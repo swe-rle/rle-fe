@@ -34,6 +34,7 @@ export class AdminConferencesComponent implements OnInit{
       { key: 'blob_storage', title: 'PDF LINK' },
       {key:'start_date',title:'Start Date'},
       {key:'end_date',title:'End Date'},
+      {key:'Actions',title:'Actions'}
     ];
     this.publicationform = new FormGroup({
       confTitle: new FormControl(""),
@@ -89,13 +90,8 @@ export class AdminConferencesComponent implements OnInit{
       })
     }
   }
-  onEditClick(){
-    
-  }
-  onEvent(event: { event: string; value: any }): void {
-    console.log(event)
-    this.selectedRow = event.value.row
-    console.log(this.selectedRow,"selectedRow")
+  onEditClick(row:any){
+    this.selectedRow = row
     this.publicationform.patchValue({
       confTitle: this.selectedRow.conf_title,
       confDescription: this.selectedRow.description,
@@ -104,6 +100,7 @@ export class AdminConferencesComponent implements OnInit{
       confEndDate: this.selectedRow.end_date,
     });
   }
+ 
   clearForm(){
     this.selectedRow = null;
   this.publicationform.reset();
@@ -118,8 +115,9 @@ export class AdminConferencesComponent implements OnInit{
   get pubType() {
     return this.publicationform.get('pubType');
   }
-  onDeleteClick(){
+  onDeleteClick(row:any){
     console.log(this.selectedRow)
+    this.selectedRow = row
     let pub_id = this.selectedRow.id
     this.researchService.deleteConference(pub_id)?.subscribe((data:any)=>{
       this.getAllConferences(this.lab_id);

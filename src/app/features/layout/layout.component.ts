@@ -19,8 +19,7 @@ export class LayoutComponent  implements OnInit{
   isLoaded:boolean = false
 
   constructor(private landingPageService:LandingPageService,
-    private route: ActivatedRoute,
-    private cookieService: CookieService) { }
+    private route: ActivatedRoute) { }
     ngOnInit(): void {
       localStorage.setItem('personRole', 'student' );
       new nav()

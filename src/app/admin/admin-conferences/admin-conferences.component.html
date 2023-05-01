@@ -51,7 +51,7 @@
              <ngx-table [configuration]="configuration"
            [data]="allConfData"
            [columns]="columns"
-           (event)="onEvent($event)">
+         >
            <ng-template let-row>
             <td>
               <div class="font-small">{{ row.conf_title }}</div>
@@ -69,12 +69,15 @@
               <span class="font-small">{{ row.end_date }}</span>
             </td>
             <td>
-              <button class="btn btn-primary btn-sm mr-2" (click)="onEditClick()">
-                Edit
-              </button>
-              <button class="btn btn-danger btn-sm" (click)="onDeleteClick()">
-                Delete
-              </button>
+              <ul class="list-inline m-0">
+                
+                <li class="list-inline-item">
+                    <button (click)="onEditClick(row)" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></button>
+                </li>
+                <li class="list-inline-item">
+                    <button (click)="onDeleteClick(row)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
+                </li>
+            </ul>
             </td>
           </ng-template>
 </ngx-table>

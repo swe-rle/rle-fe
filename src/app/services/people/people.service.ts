@@ -55,4 +55,26 @@ export class PeopleService {
       person_id
     )
   }
+
+  getAllLabs()
+  {
+    return this.httpService.requestCall(ApiMethod.GET,AuthEndPoints.GET_ALL_LABS,'','');
+  }
+  public addNewLab(data:any){
+    return this.httpService.requestCall(
+      ApiMethod.POST,
+      AuthEndPoints.ADD_LAB,
+      data,
+      ''      
+    );
+  }
+
+  public deleteLab(lab_id:any){
+    return this.httpService.requestCall(
+      ApiMethod.DELETE,
+      AuthEndPoints.DELETE_LAB,
+      '',
+      lab_id
+    );
+  }
 }
