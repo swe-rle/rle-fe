@@ -33,9 +33,11 @@ export class GalleryService {
   }
 
   uploadMultipleImages(files:any){
+    {
       const formData = new FormData(); 
+      console.log(files)
       for(let i=0;i<files.length;i++){
-        formData.append("file", files[i], files[i].name);
+        formData.append("files", files[i], files[i].name);
       }
       return this.httpService.requestCall(
         ApiMethod.POST,
@@ -44,6 +46,17 @@ export class GalleryService {
         ''      
       );
   }
+}
 
+  addGalleryEvent(data:any){
+    {
+      return this.httpService.requestCall(
+        ApiMethod.POST,
+        AuthEndPoints.ADD_GALLERY_EVENT,
+        data,
+        ''      
+      );
+    }
+  }
   
 }

@@ -31,5 +31,6 @@ export enum ApiMethod {
     DELETE_LAB_MEMBER = 'person?labmember_id=',
     GET_ALL_EVENTS = 'events/',
     UPLOAD_MULTIPLE_IMAGES = 'uploadfile/multiple',
+    ADD_GALLERY_EVENT = 'newevent',
   }
   
