@@ -1,13 +1,13 @@
-<section id="intro" class="about-section pt-70">
+<section id="intro" class="about-section pt-70" >
     <div class="container">
       <div class="row gutters justify-content-center">
-        <h1 style="text-align: center;">Recent Publications</h1>
+        <h1 #publicationssection style="text-align: center;">Recent Publications</h1>
         <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12 justify-content-between"> <!--col-xl-8 col-lg-12 col-md-12 col-sm-12-->
           <div class="card" style="border:none">
             <div class="card-body" >
               <!-- Timeline start -->
               <div class="timeline">
-                <div class="timeline-row" *ngFor="let pub of recentPublications">
+                <div #publicationssectionpub class="timeline-row" *ngFor="let pub of recentPublications">
                   <div class="timeline-time">{{pub.pub_date}}</div>
                   <div class="timeline-dot fb-bg"></div>
                   <div class="timeline-content">
@@ -37,13 +37,13 @@
   <section id="intro" class="about-section pt-70">
     <div class="container">
       <div class="row gutters justify-content-center">
-        <h1 style="text-align: center;">Upcoming Conferences</h1>
+        <h1 #conferencessection style="text-align: center;">Upcoming Conferences</h1>
         <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12 justify-content-between"> <!--col-xl-8 col-lg-12 col-md-12 col-sm-12-->
           <div class="card" style="border:none">
             <div class="card-body" >
               <!-- Timeline start -->
               <div class="timeline">
-                <div class="timeline-row" *ngFor = "let conf of upcomingConferences">
+                <div #conferencesssectionconf class="timeline-row" *ngFor = "let conf of upcomingConferences">
                   <div class="timeline-time">{{conf.end_date}}</div>
                   <div class="timeline-dot fb-bg"></div>
                   <div class="timeline-content">

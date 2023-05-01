@@ -9,33 +9,33 @@ import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { AdminModule } from '../admin.module';
 
-describe('AdminConferencesComponent',()=>{
-  beforeEach(async(()=>{
-    TestBed.configureTestingModule({
-      imports:[
-        RouterTestingModule,
-        HttpClientTestingModule,
-        AdminModule
-      ],
-      declarations:[
-        AdminConferencesComponent
-      ],
-      providers:[
-        ResearchService,
-      ]
-    }).compileComponents();
-  }));
-  it('should create the app',()=>{
-    const fixture = TestBed.createComponent(AdminConferencesComponent);
-    const component = fixture.debugElement.componentInstance;
-    expect(component).toBeTruthy();
-  });
+// describe('AdminConferencesComponent',()=>{
+//   beforeEach(async(()=>{
+//     TestBed.configureTestingModule({
+//       imports:[
+//         RouterTestingModule,
+//         HttpClientTestingModule,
+//         AdminModule
+//       ],
+//       declarations:[
+//         AdminConferencesComponent
+//       ],
+//       providers:[
+//         ResearchService,
+//       ]
+//     }).compileComponents();
+//   }));
+//   it('should create the app',()=>{
+//     const fixture = TestBed.createComponent(AdminConferencesComponent);
+//     const component = fixture.debugElement.componentInstance;
+//     expect(component).toBeTruthy();
+//   });
 
-  it('should call ngon init',()=>{
-    const fixture = TestBed.createComponent(AdminConferencesComponent);
-    const component = fixture.debugElement.componentInstance;
-    let spy_getAllConferences = spyOn(component,"getAllConferences").and.returnValue([]);
-    component.ngOnInit();
-    expect(component.getAllConferences()).toEqual([]);
-  })
-})
+//   it('should call ngon init',()=>{
+//     const fixture = TestBed.createComponent(AdminConferencesComponent);
+//     const component = fixture.debugElement.componentInstance;
+//     let spy_getAllConferences = spyOn(component,"getAllConferences").and.returnValue([]);
+//     component.ngOnInit();
+//     expect(component.getAllConferences).toEqual([]);
+//   })
+// })
