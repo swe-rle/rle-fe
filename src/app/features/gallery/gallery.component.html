@@ -1,4 +1,4 @@
-<section id="intro" class="about-section pt-70" style="margin-top: 80px;">
+<section id="intro" class="about-section pt-70" style="margin-top: 80px;" *ngIf="isLoaded">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -6,16 +6,28 @@
             </div>
         </div>
       <div class="row ">
-        <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 justify-content-between" *ngFor="let gal of gallery;let i = index;"> 
-        <h3>{{gal.title}}</h3>
-        <h6>{{gal.description}}</h6>
-        <gallery gallerize  [items]="galleryList[i]"  
+        <div class="col-lg-6 col-xl-6 col-md-12 col-sm-12 justify-content-between" *ngFor="let gal of galleryList; index as i;"> 
+        <h3>{{imagegallery[i].title}}</h3>
+        <h6>{{imagegallery[i].description}}</h6>
+        <gallery [items]="gal"
+        id="gallery-{{i}}"
         [thumb]="config?.thumb!"
         [dots]="config?.dots!"
-        [loadingStrategy]="config?.loadingStrategy!"
-        [slidingDirection]="config?.slidingDirection!"
           ></gallery>
         </div>
     </div>
     </div>
   </section>
+
+
+  <!-- <div class="gallerize-example">
+    <h2>Gallerize Example</h2>
+    <h3>First gallery</h3>
+    <p class="container" gallerize="one">
+      <img *ngFor="let img of imageData3" [src]="img">
+    </p>
+    <h3>Second gallery</h3>
+    <p class="container" gallerize="two">
+      <img *ngFor="let img of imageData2" [src]="img">
+    </p>
+  </div> -->
