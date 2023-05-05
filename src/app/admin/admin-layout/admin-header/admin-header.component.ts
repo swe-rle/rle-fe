@@ -1,6 +1,7 @@
 // import { Component } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import jwt_decode from "jwt-decode";
 import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-admin-header',
@@ -11,6 +12,8 @@ export class AdminHeaderComponent {
   id:any
   isLoaded:boolean=false
   lab_id:any
+  isAdmin:any = false
+  user:any
   @Input() headerData: any;
 constructor(public router:Router,
   public route:ActivatedRoute,
@@ -19,6 +22,10 @@ constructor(public router:Router,
 ngOnInit(){
   this.lab_id = this.route.snapshot.paramMap.get('lab_id');
 this.id = 1
+this.user = jwt_decode(this.cookieService.get('rle_session'))
+if(this.user.role_name == 'admin'){
+  this.isAdmin = true
+}
 const myArray = window.location.href.split("/");
     const lastel = (myArray[myArray.length-1])
     switch(lastel){

@@ -20,6 +20,7 @@ import { TruncatePipe } from '../truncate.pipe';
 import { ConferencesComponent } from './conferences/conferences.component';
 import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { CookieService } from 'ngx-cookie-service';
+import { TableModule } from 'ngx-easy-table';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CookieService } from 'ngx-cookie-service';
     NgxExtendedPdfViewerModule ,
     SocialLoginModule ,
     GoogleSigninButtonModule,
+    TableModule
   ],
   exports:[TruncatePipe],
   providers: [
