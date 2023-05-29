@@ -6,6 +6,8 @@ import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import { ToastrService } from 'ngx-toastr';
 import { GalleryService } from 'src/app/services/gallery/gallery.service';
 import { PeopleService } from 'src/app/services/people/people.service';
+import jwt_decode from "jwt-decode";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-admin-people',
@@ -18,7 +20,8 @@ export class AdminPeopleComponent {
     private galleryService:GalleryService,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private cdr: ChangeDetectorRef) { }
+    private cdr: ChangeDetectorRef,
+    private cookieService:CookieService) { }
     isPersonImagePresent:boolean = true;
     peopleform!:FormGroup
     public lab_id:any
@@ -34,8 +37,14 @@ export class AdminPeopleComponent {
     public columns!: Columns[];
     selectedRow:any = null;
     allPeopleData:any
+    personId:any
+    user_info:any
 
   ngOnInit() {
+
+     this.user_info = jwt_decode(this.cookieService.get('rle_session'))
+    this.personId = this.user_info.person_id
+    console.log(this.user_info,'user info')
     this.peopleform = new FormGroup({
       PersonName: new FormControl("",Validators.required),
       RollNo: new FormControl("",),
@@ -124,6 +133,7 @@ export class AdminPeopleComponent {
   getAllLabMemberDetails(lab_id:any){
     this.peopleService.getAllPeople(lab_id)?.subscribe((res:any)=>{
       this.allPeopleData = res
+      console.log(res,'all peopel data')
     })
     }
 

@@ -23,7 +23,7 @@ import { AdminLabComponent } from './admin/admin-lab/admin-lab.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'features/6/home',
+    redirectTo: 'features/13/home',
     pathMatch: 'full'
   },
   {

@@ -107,7 +107,7 @@
                         <button (click)="onEditClick(row)" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="bi bi-pencil-square"></i></button>
                     </li>
                     <li class="list-inline-item">
-                        <button (click)="onDeleteClick(row)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
+                        <button [disabled]="user_info.email == row.roll_number?true:false" (click)="onDeleteClick(row)" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="bi bi-trash"></i></button>
                     </li>
                 </ul>
                 </td>
