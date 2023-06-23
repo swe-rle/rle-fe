@@ -15,7 +15,7 @@ export class LayoutComponent  implements OnInit{
   headerDetails:any
   footerDetails:any
   public lab_id:any
-  isLoaded:boolean = false
+  isLoaded:boolean = true
 
   constructor(private landingPageService:LandingPageService,
     private route: ActivatedRoute) { }
@@ -37,6 +37,9 @@ export class LayoutComponent  implements OnInit{
         "lab_name":res?.name
     }
     this.isLoaded = true
+  },
+  (error:any)=>{
+    this.isLoaded= true;
   });
   }
   
